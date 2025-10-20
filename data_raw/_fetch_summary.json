@@ -1,0 +1,147 @@
+{
+  "fetch_date": "2025-10-20T18:01:01.149624",
+  "projects_fetched": 10,
+  "projects_total": 10,
+  "projects": [
+    {
+      "project_name": "ba_project_a01_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 3,
+        "total_commits": 66,
+        "total_pipelines": 72,
+        "total_artifacts": 179,
+        "artifact_size_mb": 9.97,
+        "jobs_with_coverage": 23,
+        "total_api_requests": 152
+      }
+    },
+    {
+      "project_name": "ba_project_a02_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 4,
+        "total_commits": 115,
+        "total_pipelines": 121,
+        "total_artifacts": 421,
+        "artifact_size_mb": 16.32,
+        "jobs_with_coverage": 50,
+        "total_api_requests": 253
+      }
+    },
+    {
+      "project_name": "ba_project_a03_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 4,
+        "total_commits": 100,
+        "total_pipelines": 107,
+        "total_artifacts": 623,
+        "artifact_size_mb": 22.96,
+        "jobs_with_coverage": 86,
+        "total_api_requests": 225
+      }
+    },
+    {
+      "project_name": "ba_project_a04_battleship",
+      "stats": {
+        "total_issues": 4,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 165,
+        "total_pipelines": 190,
+        "total_artifacts": 1252,
+        "artifact_size_mb": 57.33,
+        "jobs_with_coverage": 177,
+        "total_api_requests": 392
+      }
+    },
+    {
+      "project_name": "ba_project_a05_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 158,
+        "total_pipelines": 179,
+        "total_artifacts": 933,
+        "artifact_size_mb": 31.96,
+        "jobs_with_coverage": 131,
+        "total_api_requests": 370
+      }
+    },
+    {
+      "project_name": "ba_project_a06_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 156,
+        "total_pipelines": 165,
+        "total_artifacts": 565,
+        "artifact_size_mb": 18.05,
+        "jobs_with_coverage": 68,
+        "total_api_requests": 342
+      }
+    },
+    {
+      "project_name": "ba_project_a07_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 180,
+        "total_pipelines": 185,
+        "total_artifacts": 347,
+        "artifact_size_mb": 8.85,
+        "jobs_with_coverage": 33,
+        "total_api_requests": 382
+      }
+    },
+    {
+      "project_name": "ba_project_a08_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 136,
+        "total_pipelines": 154,
+        "total_artifacts": 1007,
+        "artifact_size_mb": 37.83,
+        "jobs_with_coverage": 141,
+        "total_api_requests": 320
+      }
+    },
+    {
+      "project_name": "ba_project_a09_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 199,
+        "total_pipelines": 211,
+        "total_artifacts": 685,
+        "artifact_size_mb": 23.62,
+        "jobs_with_coverage": 84,
+        "total_api_requests": 435
+      }
+    },
+    {
+      "project_name": "ba_project_a10_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 4,
+        "total_commits": 178,
+        "total_pipelines": 217,
+        "total_artifacts": 1396,
+        "artifact_size_mb": 74.45,
+        "jobs_with_coverage": 197,
+        "total_api_requests": 446
+      }
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+[
+  {
+    "id": 2122,
+    "iid": 1,
+    "project_id": 186,
+    "title": "[US-01] Place fleet on a concealed board",
+    "description": "As a player\nI want to position my ships on a concealed grid\nSo that I can start a fair game.\n\nThe system shall:\n1) Provide a 10×10 grid per player.\n2) Provide a standard fleet with ship lengths: Carrier (5), Battleship (4), Destroyer (3), Submarine (3), Patrol Boat (2).\n3) Allow placement horizontally or vertically; reject diagonal, overlapping, or out-of-bounds placements.\n4) Keep each player's ship locations hidden from the opponent.\n\nAcceptance criteria (verifiable):\n- Given a ship partly outside the grid, when placement is attempted, then the system rejects it with an error and no placement occurs.\n- Given two ships sharing any square, when the second is placed, then placement is rejected and existing ships remain unchanged.\n- Given a valid layout, when all ships are placed, then the board is marked ready and remains hidden from the opponent.",
+    "state": "closed",
+    "created_at": "2025-10-12T02:19:08.444Z",
+    "updated_at": "2025-10-12T03:16:24.909Z",
+    "closed_at": "2025-10-12T03:16:18.938Z",
+    "closed_by": {
+      "id": 9,
+      "username": "Ivan-Esau",
+      "name": "Ivan Esau",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://gitlab.nibbler.fh-swf.de/uploads/-/system/user/avatar/9/avatar.png",
+      "web_url": "https://gitlab.nibbler.fh-swf.de/Ivan-Esau"
+    },
+    "labels": [],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 9,
+      "username": "Ivan-Esau",
+      "name": "Ivan Esau",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://gitlab.nibbler.fh-swf.de/uploads/-/system/user/avatar/9/avatar.png",
+      "web_url": "https://gitlab.nibbler.fh-swf.de/Ivan-Esau"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 1,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship/-/issues/1",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": true,
+    "task_status": "0 of 0 checklist items completed",
+    "_links": {
+      "self": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/1",
+      "notes": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/1/notes",
+      "award_emoji": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/1/award_emoji",
+      "project": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#1",
+      "relative": "#1",
+      "full": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship#1"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "imported": false,
+    "imported_from": "none",
+    "service_desk_reply_to": null
+  },
+  {
+    "id": 2123,
+    "iid": 2,
+    "project_id": 186,
+    "title": "[US-02] Take turns firing with hit/miss feedback",
+    "description": "As a player\nI want to fire at grid coordinates and get hit/miss feedback\nSo that I can locate and sink the opponent’s ships.\n\nThe system shall:\n1) Enforce alternating turns.\n2) Let the active player select a target coordinate on the opponent’s grid.\n3) Report 'hit' or 'miss' immediately and record the result on both players’ tracking views.\n4) Prevent firing at the same coordinate twice.\n\nAcceptance criteria (verifiable):\n- Given A1 has not been targeted, when the player fires at A1, then the result is shown (hit/miss) and A1 becomes marked as used.\n- Given A1 is already targeted, when the player attempts A1 again, then the system blocks the action and preserves turn order rules.\n- Given a turn completes, when control passes, then only the next player can act.",
+    "state": "closed",
+    "created_at": "2025-10-12T02:19:08.855Z",
+    "updated_at": "2025-10-12T03:46:07.282Z",
+    "closed_at": "2025-10-12T03:46:00.978Z",
+    "closed_by": {
+      "id": 9,
+      "username": "Ivan-Esau",
+      "name": "Ivan Esau",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://gitlab.nibbler.fh-swf.de/uploads/-/system/user/avatar/9/avatar.png",
+      "web_url": "https://gitlab.nibbler.fh-swf.de/Ivan-Esau"
+    },
+    "labels": [],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 9,
+      "username": "Ivan-Esau",
+      "name": "Ivan Esau",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://gitlab.nibbler.fh-swf.de/uploads/-/system/user/avatar/9/avatar.png",
+      "web_url": "https://gitlab.nibbler.fh-swf.de/Ivan-Esau"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 1,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship/-/issues/2",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": true,
+    "task_status": "0 of 0 checklist items completed",
+    "_links": {
+      "self": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/2",
+      "notes": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/2/notes",
+      "award_emoji": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/2/award_emoji",
+      "project": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#2",
+      "relative": "#2",
+      "full": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship#2"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "imported": false,
+    "imported_from": "none",
+    "service_desk_reply_to": null
+  },
+  {
+    "id": 2124,
+    "iid": 3,
+    "project_id": 186,
+    "title": "[US-03] Track ship damage, announce sunk, and end the game",
+    "description": "As a player\nI want the system to track damage per ship and end the game when a fleet is destroyed\nSo that outcomes are clear.\n\nThe system shall:\n1) Track hits per ship and determine when all squares of a ship are hit.\n2) Upon completion, announce the ship as 'sunk'.\n3) When all ships of a player are sunk, declare victory for the opponent and disable further input.\n4) Provide New Game to start a fresh match.\n\nAcceptance criteria (verifiable):\n- Given the last undamaged square of a ship is hit, when the result is processed, then that ship is announced 'sunk'.\n- Given the final enemy ship is sunk, when the board updates, then the match ends, the winner is indicated, and no further shots are allowed.\n- Given a finished match, when New Game is chosen, then both boards reset to covered, unplaced state.",
+    "state": "opened",
+    "created_at": "2025-10-12T02:19:09.294Z",
+    "updated_at": "2025-10-12T04:46:16.550Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 9,
+      "username": "Ivan-Esau",
+      "name": "Ivan Esau",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://gitlab.nibbler.fh-swf.de/uploads/-/system/user/avatar/9/avatar.png",
+      "web_url": "https://gitlab.nibbler.fh-swf.de/Ivan-Esau"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 1,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship/-/issues/3",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": true,
+    "task_status": "0 of 0 checklist items completed",
+    "_links": {
+      "self": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/3",
+      "notes": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/3/notes",
+      "award_emoji": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/3/award_emoji",
+      "project": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#3",
+      "relative": "#3",
+      "full": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship#3"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "imported": false,
+    "imported_from": "none",
+    "service_desk_reply_to": null
+  },
+  {
+    "id": 2125,
+    "iid": 4,
+    "project_id": 186,
+    "title": "[US-04] Single-player mode vs. computer opponent",
+    "description": "As a player\nI want to play against a computer opponent\nSo that I can play solo.\n\nThe system shall:\n1) Offer Single-Player: the computer places a legal fleet (no overlaps/out-of-bounds, standard sizes).\n2) On its turn, the computer shall select a valid untargeted coordinate and fire; at minimum it shall avoid repeats.\n3) Provide difficulty options: Easy (random shots) and Standard (after a hit, preferentially target adjacent cells until the ship is sunk).\n\nAcceptance criteria (verifiable):\n- Given Single-Player is chosen, when the match starts, then the computer’s fleet exists and is legal but hidden.\n- Given the computer took a turn, when the history is inspected, then its shot is at a previously untargeted coordinate.\n- Given Standard difficulty and a computer hit, when subsequent computer turns occur, then at least one subsequent shot targets an adjacent cell until the ship is sunk.",
+    "state": "opened",
+    "created_at": "2025-10-12T02:19:09.854Z",
+    "updated_at": "2025-10-12T02:19:09.854Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 9,
+      "username": "Ivan-Esau",
+      "name": "Ivan Esau",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://gitlab.nibbler.fh-swf.de/uploads/-/system/user/avatar/9/avatar.png",
+      "web_url": "https://gitlab.nibbler.fh-swf.de/Ivan-Esau"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship/-/issues/4",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": true,
+    "task_status": "0 of 0 checklist items completed",
+    "_links": {
+      "self": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/4",
+      "notes": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/4/notes",
+      "award_emoji": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/4/award_emoji",
+      "project": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#4",
+      "relative": "#4",
+      "full": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship#4"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "imported": false,
+    "imported_from": "none",
+    "service_desk_reply_to": null
+  },
+  {
+    "id": 2126,
+    "iid": 5,
+    "project_id": 186,
+    "title": "[US-05] Save, load, and resume a match",
+    "description": "As a player\nI want to save the current match and later load it to resume exactly where I left off\nSo that I can pause and continue the game without losing progress.\n\nThe system shall:\n1) Persist the complete match state to a single file chosen by the user, including: board size, both fleets’ concealed layouts, all shots and results, sunk statuses, whose turn it is, difficulty/mode, and the elapsed timer value. Hidden information shall remain hidden to the opponent after load.\n2) Load a previously saved match file and restore the game to the exact same externally observable state (boards, indicators, whose turn, timer, difficulty/mode).\n3) Validate the file and version; on missing/invalid/corrupted/incompatible files the system shall report an error and shall not modify the current in-memory game.\n4) Ensure idempotent round-trip: a save immediately followed by a load shall not change any part of the match state observable to the player.\n5) Allow the user to choose the location and filename when saving or loading.\n\nAcceptance criteria (verifiable):\n- Given a mid-game state S (defined test fixture), when the user saves and immediately loads that file, then the restored game equals S in: shot history & results, visible cell states on both grids, sunk indicators, whose turn, difficulty/mode, and timer value.\n- Given a deliberately corrupted or incompatible file, when the user attempts to load it, then an error is shown and the current game remains unchanged.\n- Given a finished game (win or loss), when it is saved and later loaded, then the game remains finished with the same outcome and inputs are disabled until a new game is started.",
+    "state": "opened",
+    "created_at": "2025-10-12T02:19:10.298Z",
+    "updated_at": "2025-10-12T09:08:40.985Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 9,
+      "username": "Ivan-Esau",
+      "name": "Ivan Esau",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://gitlab.nibbler.fh-swf.de/uploads/-/system/user/avatar/9/avatar.png",
+      "web_url": "https://gitlab.nibbler.fh-swf.de/Ivan-Esau"
+    },
+    "type": "ISSUE",
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "issue_type": "issue",
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship/-/issues/5",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": true,
+    "task_status": "0 of 0 checklist items completed",
+    "_links": {
+      "self": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/5",
+      "notes": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/5/notes",
+      "award_emoji": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186/issues/5/award_emoji",
+      "project": "https://gitlab.nibbler.fh-swf.de/api/v4/projects/186",
+      "closed_as_duplicate_of": null
+    },
+    "references": {
+      "short": "#5",
+      "relative": "#5",
+      "full": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship#5"
+    },
+    "severity": "UNKNOWN",
+    "moved_to_id": null,
+    "imported": false,
+    "imported_from": "none",
+    "service_desk_reply_to": null
+  }
+]

@@ -1,0 +1,176 @@
+[
+  {
+    "name": "feature/issue-1-us-01-place-fleet-on-a-conceal",
+    "commit": {
+      "id": "7a90f0ea35c18cd9f7c3727899e5c0c1d51d850b",
+      "short_id": "7a90f0ea",
+      "created_at": "2025-10-13T00:34:15.000+00:00",
+      "parent_ids": [
+        "d5d6c173a25780c2d77ad2d1db0abc3695e89666"
+      ],
+      "title": "docs: add Testing Agent verification report for completed Issue #1",
+      "message": "docs: add Testing Agent verification report for completed Issue #1",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-13T00:34:15.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-13T00:34:15.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/commit/7a90f0ea35c18cd9f7c3727899e5c0c1d51d850b"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/tree/feature/issue-1-us-01-place-fleet-on-a-conceal"
+  },
+  {
+    "name": "feature/issue-2-us-02-take-turns-firing-with-h",
+    "commit": {
+      "id": "69f6b534b809f2e83170a8fe81d2cf706dc9f438",
+      "short_id": "69f6b534",
+      "created_at": "2025-10-13T02:18:09.000+00:00",
+      "parent_ids": [
+        "122d596306619bd452cbb4e668d3b1b64f4c27c8"
+      ],
+      "title": "docs: add final Testing Agent verification report for Issue #2",
+      "message": "docs: add final Testing Agent verification report for Issue #2",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-13T02:18:09.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-13T02:18:09.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/commit/69f6b534b809f2e83170a8fe81d2cf706dc9f438"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/tree/feature/issue-2-us-02-take-turns-firing-with-h"
+  },
+  {
+    "name": "feature/issue-3-us-03-track-ship-damage-announ",
+    "commit": {
+      "id": "446280deb085b870053f70b3701e843c668f86d7",
+      "short_id": "446280de",
+      "created_at": "2025-10-13T03:59:00.000+00:00",
+      "parent_ids": [
+        "75e068f08e240bb24c87e9b6a4ebf348c140681f"
+      ],
+      "title": "docs: add comprehensive Review Agent rejection report for Issue #3",
+      "message": "docs: add comprehensive Review Agent rejection report for Issue #3",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-13T03:59:00.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-13T03:59:00.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/commit/446280deb085b870053f70b3701e843c668f86d7"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/tree/feature/issue-3-us-03-track-ship-damage-announ"
+  },
+  {
+    "name": "feature/issue-4-us-04-single-player-mode-vs-co",
+    "commit": {
+      "id": "2f752f9d760bc6c5e6b8ae599bb645c3cf120cf8",
+      "short_id": "2f752f9d",
+      "created_at": "2025-10-13T04:48:36.000+00:00",
+      "parent_ids": [
+        "e84ad8a107814ff501e437839a046e63e2394ec6"
+      ],
+      "title": "docs: Add Review Agent report for Issue #4 with rejection documentation (v4)",
+      "message": "docs: Add Review Agent report for Issue #4 with rejection documentation (v4)",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-13T04:48:36.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-13T04:48:36.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/commit/2f752f9d760bc6c5e6b8ae599bb645c3cf120cf8"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/tree/feature/issue-4-us-04-single-player-mode-vs-co"
+  },
+  {
+    "name": "feature/issue-5-us-05-save-load-and-resume-a-m",
+    "commit": {
+      "id": "f4b9e0b164163d54688db28cf8d5cdbbd408c7e2",
+      "short_id": "f4b9e0b1",
+      "created_at": "2025-10-13T05:38:44.000+00:00",
+      "parent_ids": [
+        "f71b8916dcccbc8ea48fe37bd30fdff86addda6c"
+      ],
+      "title": "docs: add Review Agent report for Issue #5 - pipeline blocking issue",
+      "message": "docs: add Review Agent report for Issue #5 - pipeline blocking issue",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-13T05:38:44.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-13T05:38:44.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/commit/f4b9e0b164163d54688db28cf8d5cdbbd408c7e2"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/tree/feature/issue-5-us-05-save-load-and-resume-a-m"
+  },
+  {
+    "name": "master",
+    "commit": {
+      "id": "23867928a1911c0f814b4fff79adaf1ba63bc3a1",
+      "short_id": "23867928",
+      "created_at": "2025-10-13T02:20:15.000+00:00",
+      "parent_ids": [
+        "ca1c291f9908b55eb2aa3c36e44fbffbdf179ad4"
+      ],
+      "title": "docs: add Review Agent verification report for completed Issue #2",
+      "message": "docs: add Review Agent verification report for completed Issue #2",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-13T02:20:15.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-13T02:20:15.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/commit/23867928a1911c0f814b4fff79adaf1ba63bc3a1"
+    },
+    "merged": false,
+    "protected": true,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": true,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship/-/tree/master"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "gitlab_projects": [
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a01_battleship",
+      "name": "ba_project_a01_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a02_battleship",
+      "name": "ba_project_a02_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a03_battleship",
+      "name": "ba_project_a03_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a04_battleship",
+      "name": "ba_project_a04_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a05_battleship",
+      "name": "ba_project_a05_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a06_battleship",
+      "name": "ba_project_a06_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a07_battleship",
+      "name": "ba_project_a07_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a08_battleship",
+      "name": "ba_project_a08_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a09_battleship",
+      "name": "ba_project_a09_battleship"
+    },
+    {
+      "id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_a10_battleship",
+      "name": "ba_project_a10_battleship"
+    }
+  ]
+}

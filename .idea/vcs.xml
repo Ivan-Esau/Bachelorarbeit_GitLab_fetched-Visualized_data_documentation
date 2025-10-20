@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$/repos/ba_project_a01_battleship" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/repos/ba_project_a03_battleship" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/repos/ba_project_a04_battleship" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/repos/ba_project_a05_battleship" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/repos/ba_project_a07_battleship" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/repos/ba_project_a08_battleship" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/repos/ba_project_a09_battleship" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

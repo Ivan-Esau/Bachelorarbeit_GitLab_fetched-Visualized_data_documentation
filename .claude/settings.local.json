@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /s /b)",
+      "Bash(findstr /v \".venv\")",
+      "Bash(cat .env)",
+      "Read(//c/Users/esaui/Desktop/PythonProjects/**)",
+      "Bash(for f in logs/csv/*.csv)",
+      "Bash(head -3 \"$f\")",
+      "Bash(done)",
+      "Bash(cat requirements.txt)",
+      "Bash(cat logs/csv/issues.csv)",
+      "Bash(pip install python-gitlab pandas python-dotenv)",
+      "Bash(python extract_gitlab_data.py)",
+      "Bash(python analyze_agent_performance.py)",
+      "Bash(pip install matplotlib seaborn)",
+      "Bash(python visualize_agent_performance.py)",
+      "Bash(python visualize_pipeline_analysis.py)",
+      "Bash(python extract_gitlab_comprehensive.py)",
+      "Bash(dir /b datacomprehensive_extraction)",
+      "Bash(python visualize_comprehensive_data.py)",
+      "Bash(python extract_all_pipelines_jobs.py)",
+      "Bash(python filter_evaluable_data.py)",
+      "Bash(python visualize_evaluable_data.py)",
+      "Bash(dir:*)",
+      "Bash(pip install:*)",
+      "Bash(python fetch_gitlab_data.py:*)",
+      "Bash(python list_projects.py:*)",
+      "Bash(python visualize_projects.py:*)",
+      "Bash(python:*)",
+      "Bash(tree:*)",
+      "WebSearch",
+      "Bash(if exist branch_lifecycle_timeline.png del branch_lifecycle_timeline.png)",
+      "Bash(findstr:*)",
+      "Bash(awk:*)",
+      "Bash(cat visualizations/issue_durations/issue_durations_statistics.csv)",
+      "Bash(cmd /c \"dir /b visualizations\\pipeline_job_success_all\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

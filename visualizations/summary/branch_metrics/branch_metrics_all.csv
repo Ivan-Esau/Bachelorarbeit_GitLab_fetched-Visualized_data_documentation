@@ -1,0 +1,61 @@
+project,issue,compile_rate,test_rate,final_coverage,cov_trend,last_compile_status,last_test_status,mr_state,branch_name
+A01,Issue #1,61.11,50.00,4.79,-75.21,success,failed,invalid_merge,feature/issue-1-us-01-place-fleet-on-a-conceal
+A01,Issue #2,75.00,0.00,4.79,0.00,success,failed,invalid_merge,feature/issue-2-us-02-take-turns-firing-with-h
+A01,Issue #3,5.00,0.00,0.00,0.00,success,failed,opened,feature/issue-3-us-03-track-ship-damage-announ
+A01,Issue #4,0.00,0.00,0.00,0.00,failed,skipped,no_mr,feature/issue-4-us-04-single-player-mode-vs-co
+A01,Issue #5,0.00,0.00,0.00,0.00,failed,skipped,no_mr,feature/issue-5-us-05-save-load-and-resume-a-m
+A01,Master,88.89,66.67,80.00,0.00,success,failed,no_mr,master
+A02,Issue #1,94.12,52.94,55.60,-24.40,success,success,opened,feature/issue-1-us-01-place-fleet-on-a-conceal
+A02,Issue #2,62.50,29.17,2.12,-77.88,success,failed,opened,feature/issue-2-us-02-take-turns-firing-with-h
+A02,Issue #3,60.00,24.00,2.30,-77.70,success,failed,invalid_merge,feature/issue-3-us-03-track-ship-damage-announ
+A02,Issue #4,40.00,0.00,0.00,0.00,success,failed,opened,feature/issue-4-us-04-single-player-mode-vs-co
+A02,Issue #5,50.00,0.00,2.30,0.00,success,failed,no_mr,feature/issue-5-us-05-save-load-and-resume-a-m
+A02,Master,100.00,66.67,80.00,0.00,success,failed,no_mr,master
+A03,Issue #1,84.62,46.15,71.10,-8.90,success,success,valid_merge,feature/issue-1-us-01-place-fleet-on-a-conceal
+A03,Issue #2,18.75,6.25,71.10,0.00,success,failed,no_mr,feature/issue-2-us-02-take-turns-firing
+A03,Issue #2,84.21,31.58,55.33,-15.77,success,success,valid_merge,feature/issue-2-us-02-take-turns-firing-with-h
+A03,Issue #3,93.75,75.00,39.75,-15.58,success,success,valid_merge,feature/issue-3-us-03-track-ship-damage-announ
+A03,Issue #4,100.00,75.00,44.31,4.56,success,success,valid_merge,feature/issue-4-us-04-single-player-mode-vs-co
+A03,Master,100.00,100.00,44.31,-35.69,success,success,no_mr,master
+A04,Issue #1,100.00,52.00,66.09,-13.91,success,success,valid_merge,feature/issue-1-us-01-place-fleet-on-a-conceal
+A04,Issue #2,98.46,13.85,62.47,-3.62,success,success,valid_merge,feature/issue-2-us-02-take-turns-firing-with-h
+A04,Issue #3,92.31,3.85,62.47,0.00,success,failed,invalid_merge,feature/issue-3-us-03-track-ship-damage-announ
+A04,Issue #4,100.00,0.00,62.47,0.00,success,failed,invalid_merge,feature/issue-4-us-04-single-player-mode-vs-co
+A04,Issue #5,60.00,0.00,62.47,0.00,success,failed,opened,feature/issue-5-us-05-save-load-and-resume-a-m
+A04,Master,100.00,71.43,62.47,-17.53,success,failed,no_mr,master
+A05,Issue #1,90.48,57.14,58.18,35.96,success,success,valid_merge,feature/issue-1-us-01-place-fleet-on-a-conceal
+A05,Issue #2,94.29,51.43,92.56,34.38,success,success,valid_merge,feature/issue-2-us-02-take-turns-firing-with-h
+A05,Issue #3,92.98,7.02,71.13,-21.43,success,failed,opened,feature/issue-3-us-03-track-ship-damage-announ
+A05,Issue #4,54.55,36.36,76.68,-15.88,success,canceled,opened,feature/issue-4-us-04-single-player-mode-vs-co
+A05,Issue #5,3.85,0.00,0.00,0.00,failed,skipped,opened,feature/issue-5-us-05-save-load-and-resume-a-m
+A05,Master,100.00,100.00,92.56,12.56,success,success,no_mr,master
+A06,Issue #1,71.43,32.14,2.60,-77.40,success,failed,opened,feature/issue-1-us-01-place-fleet-on-a-conceal
+A06,Issue #2,68.42,18.42,2.60,-77.40,success,failed,opened,feature/issue-2-us-02-take-turns-firing-with-h
+A06,Issue #3,53.33,23.33,1.18,-78.82,success,failed,opened,feature/issue-3-us-03-track-ship-damage-announ
+A06,Issue #4,66.67,27.27,0.99,-79.01,success,failed,opened,feature/issue-4-us-04-single-player-mode-vs-co
+A06,Issue #5,65.52,34.48,0.75,-22.78,success,failed,invalid_merge,feature/issue-5-us-05-save-load-and-resume-a-m
+A06,Master,85.71,71.43,80.00,0.00,success,failed,no_mr,master
+A07,Issue #1,57.14,17.14,2.15,-9.61,success,failed,opened,feature/issue-1-us-01-place-fleet-on-a-conceal
+A07,Issue #2,27.27,3.03,2.06,0.00,success,failed,opened,feature/issue-2-us-02-take-turns-firing-with-h
+A07,Issue #3,45.95,0.00,2.15,0.00,success,failed,opened,feature/issue-3-us-03-track-ship-damage-announ
+A07,Issue #4,50.00,17.65,1.31,-78.69,success,failed,opened,feature/issue-4-us-04-single-player-mode-vs-co
+A07,Issue #5,28.21,5.13,1.43,-78.57,success,failed,opened,feature/issue-5-us-05-save-load-and-resume-a-m
+A07,Master,100.00,100.00,80.00,0.00,success,success,no_mr,master
+A08,Issue #1,89.29,67.86,96.43,72.90,success,success,valid_merge,feature/issue-1-us-01-place-fleet-on-a-conceal
+A08,Issue #2,100.00,63.64,73.64,-22.79,success,success,valid_merge,feature/issue-2-us-02-take-turns-firing-with-h
+A08,Issue #3,86.96,6.52,64.34,-9.30,success,failed,opened,feature/issue-3-us-03-track-ship-damage-announ
+A08,Issue #4,100.00,84.21,71.70,-2.36,success,success,opened,feature/issue-4-us-04-single-player-mode-vs-co
+A08,Issue #5,100.00,46.43,65.67,-7.97,success,success,valid_merge,feature/issue-5-us-05-save-load-and-resume-a-m
+A08,Master,100.00,100.00,65.44,-14.56,success,success,no_mr,master
+A09,Issue #1,90.00,33.33,98.28,84.49,success,success,valid_merge,feature/issue-1-us-01-place-fleet-on-a-conceal
+A09,Issue #2,57.97,2.90,70.30,-27.98,canceled,canceled,opened,feature/issue-2-us-02-take-turns-firing-with-h
+A09,Issue #3,0.00,0.00,0.00,0.00,canceled,canceled,opened,feature/issue-3-us-03-track-ship-damage-announ
+A09,Issue #4,52.63,7.89,75.28,11.44,success,failed,opened,feature/issue-4-us-04-single-player-mode-vs-co
+A09,Issue #5,39.29,0.00,75.28,0.00,success,failed,opened,feature/issue-5-us-05-save-load-and-resume-a-m
+A09,Master,100.00,100.00,98.28,18.28,success,success,no_mr,master
+A10,Issue #1,87.50,29.17,12.50,-67.50,success,success,valid_merge,feature/issue-1-us-01-place-fleet-on-a-conceal
+A10,Issue #2,100.00,60.00,82.22,-4.14,success,success,opened,feature/issue-2-us-02-take-turns-firing-with-h
+A10,Issue #3,88.89,5.56,63.20,-30.74,success,failed,opened,feature/issue-3-us-03-track-ship-damage-announ
+A10,Issue #4,91.94,3.23,62.76,-31.68,success,failed,opened,feature/issue-4-us-04-single-player-mode-vs-co
+A10,Issue #5,100.00,100.00,57.35,-29.01,success,success,no_mr,feature/issue-5-us-05-save-load-and-resume-a-m
+A10,Master,100.00,100.00,86.36,6.36,success,success,no_mr,master

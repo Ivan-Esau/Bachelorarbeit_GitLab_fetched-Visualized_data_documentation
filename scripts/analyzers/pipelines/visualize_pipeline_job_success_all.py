@@ -19,7 +19,7 @@ Usage:
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 import json
 import matplotlib.pyplot as plt
@@ -33,7 +33,7 @@ from core import load_project_config
 sns.set_style("whitegrid")
 
 
-def get_job_success_rates(project_name, data_base_dir='../../data_raw'):
+def get_job_success_rates(project_name, data_base_dir=None):
     """
     Calculate pipeline success rates grouped by branch/issue
 
@@ -49,6 +49,11 @@ def get_job_success_rates(project_name, data_base_dir='../../data_raw'):
     Returns:
         Dict mapping issue labels to pipeline statistics
     """
+    if data_base_dir is None:
+        from pathlib import Path
+        base_dir = Path(__file__).parent.parent.parent.parent
+        data_base_dir = str(base_dir / 'data_raw')
+
     data_dir = os.path.join(data_base_dir, project_name)
     pipelines_file = os.path.join(data_dir, 'pipelines.json')
 
@@ -327,6 +332,8 @@ def main():
     # Create output directory
     output_dir = os.path.join('..', '..', 'visualizations', 'pipeline_job_success_all')
     os.makedirs(output_dir, exist_ok=True)
+    summary_dir = os.path.join('..', '..', 'visualizations', 'summary', 'pipelines')
+    os.makedirs(summary_dir, exist_ok=True)
 
     # Collect data for all projects
     all_project_data = {}
@@ -365,7 +372,7 @@ def main():
     print()
 
     # Generate statistics table
-    stats_file = os.path.join(output_dir, 'pipeline_job_success_all_statistics.csv')
+    stats_file = os.path.join(summary_dir, 'pipeline_job_success_all_statistics.csv')
     create_statistics_table(all_project_data, stats_file)
 
     print()

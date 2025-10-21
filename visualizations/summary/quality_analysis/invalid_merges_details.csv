@@ -1,0 +1,7 @@
+mr_iid,title,source_branch,merged_at,pipeline_id,compile_status,test_status,is_valid,project
+1,[US-01] Place fleet on a concealed board,feature/issue-1-us-01-place-fleet-on-a-conceal,2025-10-12 03:16:17.960000+00:00,5888,success,failed,False,A01
+2,[US-02] Take turns firing with hit/miss feedback,feature/issue-2-us-02-take-turns-firing-with-h,2025-10-12 03:46:00.207000+00:00,5903,success,failed,False,A01
+3,"[US-03] Track ship damage, announce sunk, and end the game",feature/issue-3-us-03-track-ship-damage-announ,2025-10-16 11:43:54.814000+00:00,8065,success,failed,False,A02
+3,"[US-03] Track ship damage, announce sunk, and end the game",feature/issue-3-us-03-track-ship-damage-announ,2025-10-12 20:37:56.826000+00:00,6182,success,failed,False,A04
+4,[US-04] Single-player mode vs. computer opponent,feature/issue-4-us-04-single-player-mode-vs-co,2025-10-12 21:49:38.727000+00:00,6225,success,failed,False,A04
+5,"[US-05] Save, load, and resume a match",feature/issue-5-us-05-save-load-and-resume-a-m,2025-10-17 04:03:26.812000+00:00,8262,success,failed,False,A06

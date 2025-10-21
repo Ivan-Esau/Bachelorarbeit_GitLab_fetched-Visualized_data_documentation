@@ -1,0 +1,14 @@
+mr_iid,title,source_branch,merged_at,pipeline_id,compile_status,test_status,is_valid,project
+1,[US-01] Place fleet on a concealed board,feature/issue-1-us-01-place-fleet-on-a-conceal,2025-10-12 14:19:16.958000+00:00,5987,success,success,True,A03
+2,Implement [US-02] Take turns firing with hit/miss feedback,feature/issue-2-us-02-take-turns-firing-with-h,2025-10-12 15:08:28.108000+00:00,6024,success,success,True,A03
+3,"[US-03] Track ship damage, announce sunk, and end the game",feature/issue-3-us-03-track-ship-damage-announ,2025-10-12 16:59:29.464000+00:00,6044,success,success,True,A03
+4,[US-04] Single-player mode vs. computer opponent,feature/issue-4-us-04-single-player-mode-vs-co,2025-10-12 17:24:54.942000+00:00,6062,success,success,True,A03
+1,[US-01] Place fleet on a concealed board,feature/issue-1-us-01-place-fleet-on-a-conceal,2025-10-12 18:43:31.564000+00:00,6096,success,success,True,A04
+2,[US-02] Take turns firing with hit/miss feedback,feature/issue-2-us-02-take-turns-firing-with-h,2025-10-12 20:11:33.701000+00:00,6162,success,success,True,A04
+1,[US-01] Place fleet on a concealed board,feature/issue-1-us-01-place-fleet-on-a-conceal,2025-10-13 00:29:39.308000+00:00,6285,success,success,True,A05
+2,[US-02] Take turns firing with hit/miss feedback,feature/issue-2-us-02-take-turns-firing-with-h,2025-10-13 02:09:57.476000+00:00,6323,success,success,True,A05
+1,[US-01] Implement ship placement on concealed board,feature/issue-1-us-01-place-fleet-on-a-conceal,2025-10-14 12:30:20.074000+00:00,6768,success,success,True,A08
+2,[US-02] Take turns firing with hit/miss feedback,feature/issue-2-us-02-take-turns-firing-with-h,2025-10-14 13:22:23.886000+00:00,6792,success,success,True,A08
+5,"[US-05] Save, load, and resume a match",feature/issue-5-us-05-save-load-and-resume-a-m,2025-10-14 16:16:17.138000+00:00,6885,success,success,True,A08
+1,Implement US-01: Ship placement system with validation,feature/issue-1-us-01-place-fleet-on-a-conceal,2025-10-14 17:46:03.420000+00:00,6924,success,success,True,A09
+1,Implement US-01: Place fleet on a concealed board,feature/issue-1-us-01-place-fleet-on-a-conceal,2025-10-19 15:06:40.650000+00:00,8629,success,success,True,A10

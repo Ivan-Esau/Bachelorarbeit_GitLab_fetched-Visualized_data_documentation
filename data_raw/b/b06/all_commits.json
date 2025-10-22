@@ -1,0 +1,1581 @@
+[
+  {
+    "id": "36e48512ebc400464bb5c3d1fe3b35186cf37b17",
+    "short_id": "36e48512",
+    "created_at": "2025-10-19T20:57:01.000+00:00",
+    "parent_ids": [],
+    "title": "Initial commit",
+    "message": "Initial commit",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T20:57:01.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T20:57:01.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/36e48512ebc400464bb5c3d1fe3b35186cf37b17"
+  },
+  {
+    "id": "620a3833acc7e7047022d2ccd4dd7d8680bb84da",
+    "short_id": "620a3833",
+    "created_at": "2025-10-19T22:58:24.000+02:00",
+    "parent_ids": [
+      "36e48512ebc400464bb5c3d1fe3b35186cf37b17"
+    ],
+    "title": "Initial commit",
+    "message": "Initial commit\n",
+    "author_name": "Ivan",
+    "author_email": "esauivan17@gmail.com",
+    "authored_date": "2025-10-19T22:58:24.000+02:00",
+    "committer_name": "Ivan",
+    "committer_email": "esauivan17@gmail.com",
+    "committed_date": "2025-10-19T22:58:24.000+02:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/620a3833acc7e7047022d2ccd4dd7d8680bb84da"
+  },
+  {
+    "id": "f9cda6aa4830c5dfb8ccc4dbc862d80fdd97dad1",
+    "short_id": "f9cda6aa",
+    "created_at": "2025-10-19T21:01:29.000+00:00",
+    "parent_ids": [
+      "620a3833acc7e7047022d2ccd4dd7d8680bb84da"
+    ],
+    "title": "feat: add project planning and implementation order",
+    "message": "feat: add project planning and implementation order",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:01:29.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:01:29.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/f9cda6aa4830c5dfb8ccc4dbc862d80fdd97dad1"
+  },
+  {
+    "id": "57bb0390210deeac7cf49198f924c08964578490",
+    "short_id": "57bb0390",
+    "created_at": "2025-10-19T21:02:10.000+00:00",
+    "parent_ids": [
+      "f9cda6aa4830c5dfb8ccc4dbc862d80fdd97dad1"
+    ],
+    "title": "feat: add project planning and implementation order",
+    "message": "feat: add project planning and implementation order",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:02:10.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:02:10.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/57bb0390210deeac7cf49198f924c08964578490"
+  },
+  {
+    "id": "6a06fc39d89143c5429a6af701f8e5353bc3d6fd",
+    "short_id": "6a06fc39",
+    "created_at": "2025-10-19T21:02:40.000+00:00",
+    "parent_ids": [
+      "57bb0390210deeac7cf49198f924c08964578490"
+    ],
+    "title": "feat: add project planning and implementation order",
+    "message": "feat: add project planning and implementation order",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:02:40.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:02:40.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/6a06fc39d89143c5429a6af701f8e5353bc3d6fd"
+  },
+  {
+    "id": "1493e1d68224a350d0d66985b56802cb0d4ff564",
+    "short_id": "1493e1d6",
+    "created_at": "2025-10-19T21:03:13.000+00:00",
+    "parent_ids": [
+      "6a06fc39d89143c5429a6af701f8e5353bc3d6fd"
+    ],
+    "title": "docs: add Planning Agent report for issue #5 (v1)",
+    "message": "docs: add Planning Agent report for issue #5 (v1)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:03:13.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:03:13.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/1493e1d68224a350d0d66985b56802cb0d4ff564"
+  },
+  {
+    "id": "71985a1810e2c1852185a15a0eeffd05e42e05c4",
+    "short_id": "71985a18",
+    "created_at": "2025-10-19T21:04:38.000+00:00",
+    "parent_ids": [
+      "1493e1d68224a350d0d66985b56802cb0d4ff564"
+    ],
+    "title": "feat: Add Coordinate model class for board positions",
+    "message": "feat: Add Coordinate model class for board positions",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:04:38.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:04:38.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/71985a1810e2c1852185a15a0eeffd05e42e05c4"
+  },
+  {
+    "id": "801e90456a148f9f171b835a3f2f270a4912839e",
+    "short_id": "801e9045",
+    "created_at": "2025-10-19T21:05:08.000+00:00",
+    "parent_ids": [
+      "71985a1810e2c1852185a15a0eeffd05e42e05c4"
+    ],
+    "title": "feat: Add Ship model class with placement validation",
+    "message": "feat: Add Ship model class with placement validation",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:05:08.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:05:08.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/801e90456a148f9f171b835a3f2f270a4912839e"
+  },
+  {
+    "id": "ba8dc28d8331ea3d367e536111a89f59f8547ae5",
+    "short_id": "ba8dc28d",
+    "created_at": "2025-10-19T21:05:21.000+00:00",
+    "parent_ids": [
+      "801e90456a148f9f171b835a3f2f270a4912839e"
+    ],
+    "title": "feat: Add ShipType enum with standard battleship ship types",
+    "message": "feat: Add ShipType enum with standard battleship ship types",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:05:21.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:05:21.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/ba8dc28d8331ea3d367e536111a89f59f8547ae5"
+  },
+  {
+    "id": "41bb369193c84e193de7216afeee90e4834fdc3e",
+    "short_id": "41bb3691",
+    "created_at": "2025-10-19T21:06:02.000+00:00",
+    "parent_ids": [
+      "ba8dc28d8331ea3d367e536111a89f59f8547ae5"
+    ],
+    "title": "feat: Add Board class with ship placement and validation logic",
+    "message": "feat: Add Board class with ship placement and validation logic",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:06:02.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:06:02.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/41bb369193c84e193de7216afeee90e4834fdc3e"
+  },
+  {
+    "id": "0eea7a94f1e4ee951908bac3698ab05d12898c12",
+    "short_id": "0eea7a94",
+    "created_at": "2025-10-19T21:06:21.000+00:00",
+    "parent_ids": [
+      "41bb369193c84e193de7216afeee90e4834fdc3e"
+    ],
+    "title": "feat: Add Cell class to represent individual board positions",
+    "message": "feat: Add Cell class to represent individual board positions",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:06:21.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:06:21.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/0eea7a94f1e4ee951908bac3698ab05d12898c12"
+  },
+  {
+    "id": "03b409e59151b390d8fd48c02884ff67863eec67",
+    "short_id": "03b409e5",
+    "created_at": "2025-10-19T21:06:43.000+00:00",
+    "parent_ids": [
+      "0eea7a94f1e4ee951908bac3698ab05d12898c12"
+    ],
+    "title": "feat: Add Player class to manage player boards and ship placement",
+    "message": "feat: Add Player class to manage player boards and ship placement",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:06:43.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:06:43.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/03b409e59151b390d8fd48c02884ff67863eec67"
+  },
+  {
+    "id": "6fc373bf8f22de6d0363e06b1f71c9edbb95f1e8",
+    "short_id": "6fc373bf",
+    "created_at": "2025-10-19T21:07:28.000+00:00",
+    "parent_ids": [
+      "03b409e59151b390d8fd48c02884ff67863eec67"
+    ],
+    "title": "feat: Update Main class with ship placement demonstration",
+    "message": "feat: Update Main class with ship placement demonstration",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:07:28.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:07:28.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/6fc373bf8f22de6d0363e06b1f71c9edbb95f1e8"
+  },
+  {
+    "id": "0431dbedc76b43f446ab2ba6218d21e1aaebaea3",
+    "short_id": "0431dbed",
+    "created_at": "2025-10-19T21:08:19.000+00:00",
+    "parent_ids": [
+      "6fc373bf8f22de6d0363e06b1f71c9edbb95f1e8"
+    ],
+    "title": "docs: Add Coding Agent report for Issue #1 implementation",
+    "message": "docs: Add Coding Agent report for Issue #1 implementation",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:08:19.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:08:19.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/0431dbedc76b43f446ab2ba6218d21e1aaebaea3"
+  },
+  {
+    "id": "31c9d8c903802bcc451b73841008048e9730e0b7",
+    "short_id": "31c9d8c9",
+    "created_at": "2025-10-19T21:10:05.000+00:00",
+    "parent_ids": [
+      "0431dbedc76b43f446ab2ba6218d21e1aaebaea3"
+    ],
+    "title": "test: add comprehensive tests for Coordinate class",
+    "message": "test: add comprehensive tests for Coordinate class",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:10:05.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:10:05.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/31c9d8c903802bcc451b73841008048e9730e0b7"
+  },
+  {
+    "id": "2393477b1cffd58e7d13dbeddf0c919bbdaeb1ff",
+    "short_id": "2393477b",
+    "created_at": "2025-10-19T21:10:28.000+00:00",
+    "parent_ids": [
+      "31c9d8c903802bcc451b73841008048e9730e0b7"
+    ],
+    "title": "test: add comprehensive tests for ShipType enum",
+    "message": "test: add comprehensive tests for ShipType enum",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:10:28.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:10:28.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/2393477b1cffd58e7d13dbeddf0c919bbdaeb1ff"
+  },
+  {
+    "id": "0ee7f919deeb3fedbdde1dd3c8e5a582c5e86b97",
+    "short_id": "0ee7f919",
+    "created_at": "2025-10-19T21:11:22.000+00:00",
+    "parent_ids": [
+      "2393477b1cffd58e7d13dbeddf0c919bbdaeb1ff"
+    ],
+    "title": "test: add comprehensive tests for Ship class",
+    "message": "test: add comprehensive tests for Ship class",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:11:22.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:11:22.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/0ee7f919deeb3fedbdde1dd3c8e5a582c5e86b97"
+  },
+  {
+    "id": "5949fafac093d13679ec8a7cdf5ea2f19872ecd8",
+    "short_id": "5949fafa",
+    "created_at": "2025-10-19T21:12:37.000+00:00",
+    "parent_ids": [
+      "0ee7f919deeb3fedbdde1dd3c8e5a582c5e86b97"
+    ],
+    "title": "test: add comprehensive tests for Board class",
+    "message": "test: add comprehensive tests for Board class",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:12:37.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:12:37.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/5949fafac093d13679ec8a7cdf5ea2f19872ecd8"
+  },
+  {
+    "id": "04c5ec1622aa5f5dfe4f257f148e7bb70bc0cc40",
+    "short_id": "04c5ec16",
+    "created_at": "2025-10-19T21:13:46.000+00:00",
+    "parent_ids": [
+      "5949fafac093d13679ec8a7cdf5ea2f19872ecd8"
+    ],
+    "title": "test: add integration tests for complete ship placement workflow",
+    "message": "test: add integration tests for complete ship placement workflow",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:13:46.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:13:46.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/04c5ec1622aa5f5dfe4f257f148e7bb70bc0cc40"
+  },
+  {
+    "id": "5102d6e3a9a3c3cc501f392916b88213f146be67",
+    "short_id": "5102d6e3",
+    "created_at": "2025-10-19T21:14:05.000+00:00",
+    "parent_ids": [
+      "04c5ec1622aa5f5dfe4f257f148e7bb70bc0cc40"
+    ],
+    "title": "test: update MainTest to verify ship placement demo functionality",
+    "message": "test: update MainTest to verify ship placement demo functionality",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:14:05.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:14:05.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/5102d6e3a9a3c3cc501f392916b88213f146be67"
+  },
+  {
+    "id": "5b099d816b5a5c27bca12035e9b854127b545938",
+    "short_id": "5b099d81",
+    "created_at": "2025-10-19T21:16:09.000+00:00",
+    "parent_ids": [
+      "5102d6e3a9a3c3cc501f392916b88213f146be67"
+    ],
+    "title": "docs: add Testing Agent report for issue #1",
+    "message": "docs: add Testing Agent report for issue #1",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:16:09.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:16:09.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/5b099d816b5a5c27bca12035e9b854127b545938"
+  },
+  {
+    "id": "b78aa45039cbbfc35739ff3cb816ea212621b5d3",
+    "short_id": "b78aa450",
+    "created_at": "2025-10-19T21:18:37.000+00:00",
+    "parent_ids": [
+      "5b099d816b5a5c27bca12035e9b854127b545938"
+    ],
+    "title": "docs: add Review Agent report for issue #1",
+    "message": "docs: add Review Agent report for issue #1",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:18:37.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:18:37.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/b78aa45039cbbfc35739ff3cb816ea212621b5d3"
+  },
+  {
+    "id": "bf3144ab1349777884fbfb05d7a596411940f56d",
+    "short_id": "bf3144ab",
+    "created_at": "2025-10-19T21:21:26.000+00:00",
+    "parent_ids": [
+      "b78aa45039cbbfc35739ff3cb816ea212621b5d3"
+    ],
+    "title": "docs: Add Coding Agent status report for Issue #1 retry scenario",
+    "message": "docs: Add Coding Agent status report for Issue #1 retry scenario",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:21:26.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:21:26.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/bf3144ab1349777884fbfb05d7a596411940f56d"
+  },
+  {
+    "id": "bee8e12a28ee13e9a70592683265bb2bef85c5b4",
+    "short_id": "bee8e12a",
+    "created_at": "2025-10-19T21:31:00.000+00:00",
+    "parent_ids": [
+      "bf3144ab1349777884fbfb05d7a596411940f56d"
+    ],
+    "title": "docs: Add Review Agent report v2 documenting pipeline failures and merge block",
+    "message": "docs: Add Review Agent report v2 documenting pipeline failures and merge block",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:31:00.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:31:00.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/bee8e12a28ee13e9a70592683265bb2bef85c5b4"
+  },
+  {
+    "id": "d55e9cbacd11a74cb2b88da2cdbf2f9ff5b57080",
+    "short_id": "d55e9cba",
+    "created_at": "2025-10-19T21:34:33.000+00:00",
+    "parent_ids": [
+      "bee8e12a28ee13e9a70592683265bb2bef85c5b4"
+    ],
+    "title": "fix: Correct ship placement validation logic",
+    "message": "fix: Correct ship placement validation logic",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:34:33.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:34:33.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/d55e9cbacd11a74cb2b88da2cdbf2f9ff5b57080"
+  },
+  {
+    "id": "65a2356a668b39ad301bfc92a00cd9096c50f28e",
+    "short_id": "65a2356a",
+    "created_at": "2025-10-19T21:34:53.000+00:00",
+    "parent_ids": [
+      "d55e9cbacd11a74cb2b88da2cdbf2f9ff5b57080"
+    ],
+    "title": "fix: Update Cell display logic to match Board display format",
+    "message": "fix: Update Cell display logic to match Board display format",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:34:53.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:34:53.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/65a2356a668b39ad301bfc92a00cd9096c50f28e"
+  },
+  {
+    "id": "5d5c6942aa2429265312c1060f51f4482b4acc78",
+    "short_id": "5d5c6942",
+    "created_at": "2025-10-19T21:35:34.000+00:00",
+    "parent_ids": [
+      "65a2356a668b39ad301bfc92a00cd9096c50f28e"
+    ],
+    "title": "fix: Update Board display to use Cell display characters properly",
+    "message": "fix: Update Board display to use Cell display characters properly",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:35:34.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:35:34.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/5d5c6942aa2429265312c1060f51f4482b4acc78"
+  },
+  {
+    "id": "a643f7a28bedc448a98b747072cbcf2294cf74fc",
+    "short_id": "a643f7a2",
+    "created_at": "2025-10-19T21:37:34.000+00:00",
+    "parent_ids": [
+      "5d5c6942aa2429265312c1060f51f4482b4acc78"
+    ],
+    "title": "docs: Add Coding Agent report for Issue #1 fixes (v3)",
+    "message": "docs: Add Coding Agent report for Issue #1 fixes (v3)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:37:34.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:37:34.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/a643f7a28bedc448a98b747072cbcf2294cf74fc"
+  },
+  {
+    "id": "38747f9ee439181bdbbf06d53a9133c406dc47da",
+    "short_id": "38747f9e",
+    "created_at": "2025-10-19T21:42:45.000+00:00",
+    "parent_ids": [
+      "a643f7a28bedc448a98b747072cbcf2294cf74fc"
+    ],
+    "title": "docs: Add Testing Agent report v2 with test failure analysis",
+    "message": "docs: Add Testing Agent report v2 with test failure analysis",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:42:45.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:42:45.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/38747f9ee439181bdbbf06d53a9133c406dc47da"
+  },
+  {
+    "id": "da9c58e4b1d3b1ab0d5dc79c31c58d929a26751d",
+    "short_id": "da9c58e4",
+    "created_at": "2025-10-19T21:43:30.000+00:00",
+    "parent_ids": [
+      "1493e1d68224a350d0d66985b56802cb0d4ff564",
+      "38747f9ee439181bdbbf06d53a9133c406dc47da"
+    ],
+    "title": "Merge branch 'feature/issue-1-us-01-setting-ships-somewhere-' into 'master'",
+    "message": "Merge branch 'feature/issue-1-us-01-setting-ships-somewhere-' into 'master'\n\nfeat: Implement US-01 - Ship placement functionality\n\nCloses #1\n\nSee merge request simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship!1",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:43:30.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:43:30.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/da9c58e4b1d3b1ab0d5dc79c31c58d929a26751d"
+  },
+  {
+    "id": "6598bfb8072a380934ef3e77ea0cdd911a8f3ba7",
+    "short_id": "6598bfb8",
+    "created_at": "2025-10-19T21:48:20.000+00:00",
+    "parent_ids": [
+      "38747f9ee439181bdbbf06d53a9133c406dc47da"
+    ],
+    "title": "docs: Add Review Agent report v3 with pipeline rejection analysis",
+    "message": "docs: Add Review Agent report v3 with pipeline rejection analysis",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:48:20.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:48:20.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/6598bfb8072a380934ef3e77ea0cdd911a8f3ba7"
+  },
+  {
+    "id": "46776c3ac6b3e5cde936b962b7896dcc375ac967",
+    "short_id": "46776c3a",
+    "created_at": "2025-10-19T21:50:10.000+00:00",
+    "parent_ids": [
+      "6598bfb8072a380934ef3e77ea0cdd911a8f3ba7"
+    ],
+    "title": "feat: Add Game class for turn management and shooting",
+    "message": "feat: Add Game class for turn management and shooting",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:50:10.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:50:10.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/46776c3ac6b3e5cde936b962b7896dcc375ac967"
+  },
+  {
+    "id": "1ecd30938f7d560ee9a69ecd37ccb5b16b989174",
+    "short_id": "1ecd3093",
+    "created_at": "2025-10-19T21:50:17.000+00:00",
+    "parent_ids": [
+      "46776c3ac6b3e5cde936b962b7896dcc375ac967"
+    ],
+    "title": "feat: Add GameState enum for game state management",
+    "message": "feat: Add GameState enum for game state management",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:50:17.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:50:17.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/1ecd30938f7d560ee9a69ecd37ccb5b16b989174"
+  },
+  {
+    "id": "d5ac68187acbb04e85509088fb9e90b47773862f",
+    "short_id": "d5ac6818",
+    "created_at": "2025-10-19T21:50:33.000+00:00",
+    "parent_ids": [
+      "1ecd30938f7d560ee9a69ecd37ccb5b16b989174"
+    ],
+    "title": "feat: Add ShotResult class for shot feedback",
+    "message": "feat: Add ShotResult class for shot feedback",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:50:33.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:50:33.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/d5ac68187acbb04e85509088fb9e90b47773862f"
+  },
+  {
+    "id": "2854bcd88128b3798d2682219087cffa9cddcce1",
+    "short_id": "2854bcd8",
+    "created_at": "2025-10-19T21:51:42.000+00:00",
+    "parent_ids": [
+      "d5ac68187acbb04e85509088fb9e90b47773862f"
+    ],
+    "title": "feat: Implement turn-based shooting phase for Issue #2",
+    "message": "feat: Implement turn-based shooting phase for Issue #2",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:51:42.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:51:42.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/2854bcd88128b3798d2682219087cffa9cddcce1"
+  },
+  {
+    "id": "05bc129c15a05227707ccaaa5a47f073e35d8f69",
+    "short_id": "05bc129c",
+    "created_at": "2025-10-19T21:52:57.000+00:00",
+    "parent_ids": [
+      "2854bcd88128b3798d2682219087cffa9cddcce1"
+    ],
+    "title": "docs: Add Coding Agent report for Issue #2 implementation",
+    "message": "docs: Add Coding Agent report for Issue #2 implementation",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:52:57.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:52:57.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/05bc129c15a05227707ccaaa5a47f073e35d8f69"
+  },
+  {
+    "id": "106dc6307140562cf0b032d3b0bd23df3d5f166e",
+    "short_id": "106dc630",
+    "created_at": "2025-10-19T21:55:31.000+00:00",
+    "parent_ids": [
+      "05bc129c15a05227707ccaaa5a47f073e35d8f69"
+    ],
+    "title": "test: add comprehensive tests for Game class (issue #2)",
+    "message": "test: add comprehensive tests for Game class (issue #2)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:55:31.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:55:31.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/106dc6307140562cf0b032d3b0bd23df3d5f166e"
+  },
+  {
+    "id": "50e6babf77f4ac349e6094541e1782f106865b0b",
+    "short_id": "50e6babf",
+    "created_at": "2025-10-19T21:56:01.000+00:00",
+    "parent_ids": [
+      "106dc6307140562cf0b032d3b0bd23df3d5f166e"
+    ],
+    "title": "test: add comprehensive tests for ShotResult class (issue #2)",
+    "message": "test: add comprehensive tests for ShotResult class (issue #2)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:56:01.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:56:01.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/50e6babf77f4ac349e6094541e1782f106865b0b"
+  },
+  {
+    "id": "3d85cc3913696854b34543f7046d8467014b94e2",
+    "short_id": "3d85cc39",
+    "created_at": "2025-10-19T21:56:29.000+00:00",
+    "parent_ids": [
+      "50e6babf77f4ac349e6094541e1782f106865b0b"
+    ],
+    "title": "test: add comprehensive tests for GameState enum (issue #2)",
+    "message": "test: add comprehensive tests for GameState enum (issue #2)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:56:29.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:56:29.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/3d85cc3913696854b34543f7046d8467014b94e2"
+  },
+  {
+    "id": "28860aeca2bf3bd379060623b47c76ccefee6052",
+    "short_id": "28860aec",
+    "created_at": "2025-10-19T21:57:26.000+00:00",
+    "parent_ids": [
+      "3d85cc3913696854b34543f7046d8467014b94e2"
+    ],
+    "title": "test: add integration tests for complete shooting workflow (issue #2)",
+    "message": "test: add integration tests for complete shooting workflow (issue #2)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:57:26.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:57:26.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/28860aeca2bf3bd379060623b47c76ccefee6052"
+  },
+  {
+    "id": "94dbe4272695906e5fd18ad24d04edf67819867d",
+    "short_id": "94dbe427",
+    "created_at": "2025-10-19T21:59:34.000+00:00",
+    "parent_ids": [
+      "28860aeca2bf3bd379060623b47c76ccefee6052"
+    ],
+    "title": "docs: add Testing Agent report for issue #2",
+    "message": "docs: add Testing Agent report for issue #2",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T21:59:34.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T21:59:34.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/94dbe4272695906e5fd18ad24d04edf67819867d"
+  },
+  {
+    "id": "3fac09ae6d04e60a9852b3b5925ba9e36637d398",
+    "short_id": "3fac09ae",
+    "created_at": "2025-10-19T22:22:34.000+00:00",
+    "parent_ids": [
+      "94dbe4272695906e5fd18ad24d04edf67819867d"
+    ],
+    "title": "docs: add Coding Agent verification report for issue #2",
+    "message": "docs: add Coding Agent verification report for issue #2",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:22:34.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:22:34.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/3fac09ae6d04e60a9852b3b5925ba9e36637d398"
+  },
+  {
+    "id": "c0f291cba2b5f4463de1bfa5014efb2d388d1a50",
+    "short_id": "c0f291cb",
+    "created_at": "2025-10-19T22:25:52.000+00:00",
+    "parent_ids": [
+      "3fac09ae6d04e60a9852b3b5925ba9e36637d398"
+    ],
+    "title": "docs: update Testing Agent report for issue #2 with pipeline analysis",
+    "message": "docs: update Testing Agent report for issue #2 with pipeline analysis",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:25:52.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:25:52.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/c0f291cba2b5f4463de1bfa5014efb2d388d1a50"
+  },
+  {
+    "id": "d20a1f9cc5411b79dda8c8c4db55a9638ac3889e",
+    "short_id": "d20a1f9c",
+    "created_at": "2025-10-19T22:26:32.000+00:00",
+    "parent_ids": [
+      "1493e1d68224a350d0d66985b56802cb0d4ff564",
+      "c0f291cba2b5f4463de1bfa5014efb2d388d1a50"
+    ],
+    "title": "Merge branch 'feature/issue-2-us-02-alternating-shooting-wit' into 'master'",
+    "message": "Merge branch 'feature/issue-2-us-02-alternating-shooting-wit' into 'master'\n\n[US-02] Alternating shooting with feedback\n\nCloses #2\n\nSee merge request simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship!2",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:26:32.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:26:32.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/d20a1f9cc5411b79dda8c8c4db55a9638ac3889e"
+  },
+  {
+    "id": "31e097e87d44fca42514fc462a503e1fabad2dd7",
+    "short_id": "31e097e8",
+    "created_at": "2025-10-19T22:30:08.000+00:00",
+    "parent_ids": [
+      "c0f291cba2b5f4463de1bfa5014efb2d388d1a50"
+    ],
+    "title": "docs: add Review Agent report for issue #2 monitoring pipeline #8850",
+    "message": "docs: add Review Agent report for issue #2 monitoring pipeline #8850",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:30:08.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:30:08.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/31e097e87d44fca42514fc462a503e1fabad2dd7"
+  },
+  {
+    "id": "41508cfa5003cda4cec969a2d93256ca9f4728e3",
+    "short_id": "41508cfa",
+    "created_at": "2025-10-19T22:33:15.000+00:00",
+    "parent_ids": [
+      "31e097e87d44fca42514fc462a503e1fabad2dd7"
+    ],
+    "title": "docs: add Coding Agent verification report for Issue #2 (v3)",
+    "message": "docs: add Coding Agent verification report for Issue #2 (v3)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:33:15.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:33:15.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/41508cfa5003cda4cec969a2d93256ca9f4728e3"
+  },
+  {
+    "id": "0591ae651b30fcef428f0b6b23a59bc3aac9d5c2",
+    "short_id": "0591ae65",
+    "created_at": "2025-10-19T22:36:15.000+00:00",
+    "parent_ids": [
+      "41508cfa5003cda4cec969a2d93256ca9f4728e3"
+    ],
+    "title": "test: improve GameTest with better duplicate shot detection and edge cases",
+    "message": "test: improve GameTest with better duplicate shot detection and edge cases",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:36:15.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:36:15.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/0591ae651b30fcef428f0b6b23a59bc3aac9d5c2"
+  },
+  {
+    "id": "3a91f9f5f5039dd7bb70d8b98542bbc7213cd162",
+    "short_id": "3a91f9f5",
+    "created_at": "2025-10-19T22:37:22.000+00:00",
+    "parent_ids": [
+      "0591ae651b30fcef428f0b6b23a59bc3aac9d5c2"
+    ],
+    "title": "test: fix ShootingIntegrationTest player comparison and add duplicate shot integration test",
+    "message": "test: fix ShootingIntegrationTest player comparison and add duplicate shot integration test",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:37:22.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:37:22.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/3a91f9f5f5039dd7bb70d8b98542bbc7213cd162"
+  },
+  {
+    "id": "44078e1b941fddc34851e3f8be9b2a170f7c6dc6",
+    "short_id": "44078e1b",
+    "created_at": "2025-10-19T22:39:07.000+00:00",
+    "parent_ids": [
+      "3a91f9f5f5039dd7bb70d8b98542bbc7213cd162"
+    ],
+    "title": "docs: add TestingAgent report v3 for Issue #2 test fixes",
+    "message": "docs: add TestingAgent report v3 for Issue #2 test fixes",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:39:07.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:39:07.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/44078e1b941fddc34851e3f8be9b2a170f7c6dc6"
+  },
+  {
+    "id": "b2f0086bffbdbd6fb121c84f04c02b2252e1f4bf",
+    "short_id": "b2f0086b",
+    "created_at": "2025-10-19T22:42:21.000+00:00",
+    "parent_ids": [
+      "44078e1b941fddc34851e3f8be9b2a170f7c6dc6"
+    ],
+    "title": "docs: add ReviewAgent report v2 for Issue #2 pipeline monitoring",
+    "message": "docs: add ReviewAgent report v2 for Issue #2 pipeline monitoring",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:42:21.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:42:21.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/b2f0086bffbdbd6fb121c84f04c02b2252e1f4bf"
+  },
+  {
+    "id": "9ba2db42304ec098cb50dd6197e82a18189d98cb",
+    "short_id": "9ba2db42",
+    "created_at": "2025-10-19T22:55:19.000+00:00",
+    "parent_ids": [
+      "b2f0086bffbdbd6fb121c84f04c02b2252e1f4bf"
+    ],
+    "title": "feat: Enhance Ship class with health tracking and sunk detection",
+    "message": "feat: Enhance Ship class with health tracking and sunk detection",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:55:19.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:55:19.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/9ba2db42304ec098cb50dd6197e82a18189d98cb"
+  },
+  {
+    "id": "9a4866573ba3eefca685e63acc305410bd99d28b",
+    "short_id": "9a486657",
+    "created_at": "2025-10-19T22:56:06.000+00:00",
+    "parent_ids": [
+      "9ba2db42304ec098cb50dd6197e82a18189d98cb"
+    ],
+    "title": "feat: Add ship sinking detection and board reset functionality",
+    "message": "feat: Add ship sinking detection and board reset functionality",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:56:06.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:56:06.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/9a4866573ba3eefca685e63acc305410bd99d28b"
+  },
+  {
+    "id": "50da457ffa704f34eca164fd2f883bb6b7af73dc",
+    "short_id": "50da457f",
+    "created_at": "2025-10-19T22:56:31.000+00:00",
+    "parent_ids": [
+      "9a4866573ba3eefca685e63acc305410bd99d28b"
+    ],
+    "title": "feat: Enhance ShotResult with sunk ship and game over information",
+    "message": "feat: Enhance ShotResult with sunk ship and game over information",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:56:31.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:56:31.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/50da457ffa704f34eca164fd2f883bb6b7af73dc"
+  },
+  {
+    "id": "1fa648d368b133aaef74e0de52276fbb7eddb2f2",
+    "short_id": "1fa648d3",
+    "created_at": "2025-10-19T22:57:12.000+00:00",
+    "parent_ids": [
+      "50da457ffa704f34eca164fd2f883bb6b7af73dc"
+    ],
+    "title": "feat: Implement game ending logic and restart functionality",
+    "message": "feat: Implement game ending logic and restart functionality",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:57:12.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:57:12.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/1fa648d368b133aaef74e0de52276fbb7eddb2f2"
+  },
+  {
+    "id": "cbca19cea51ad3d812a44df5bf09a4b3dab2b9ac",
+    "short_id": "cbca19ce",
+    "created_at": "2025-10-19T22:58:11.000+00:00",
+    "parent_ids": [
+      "1fa648d368b133aaef74e0de52276fbb7eddb2f2"
+    ],
+    "title": "feat: Implement complete game loop with restart functionality",
+    "message": "feat: Implement complete game loop with restart functionality",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:58:11.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:58:11.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/cbca19cea51ad3d812a44df5bf09a4b3dab2b9ac"
+  },
+  {
+    "id": "7eb18fc0a293699f70906e2af100bde660590141",
+    "short_id": "7eb18fc0",
+    "created_at": "2025-10-19T22:59:19.000+00:00",
+    "parent_ids": [
+      "cbca19cea51ad3d812a44df5bf09a4b3dab2b9ac"
+    ],
+    "title": "fix: Add missing getName() method to Player class",
+    "message": "fix: Add missing getName() method to Player class",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:59:19.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:59:19.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/7eb18fc0a293699f70906e2af100bde660590141"
+  },
+  {
+    "id": "a99a466eb25ff95a3cdca74fd4455fa3135d9bf9",
+    "short_id": "a99a466e",
+    "created_at": "2025-10-19T22:59:51.000+00:00",
+    "parent_ids": [
+      "7eb18fc0a293699f70906e2af100bde660590141"
+    ],
+    "title": "fix: Add fromString method to Coordinate class",
+    "message": "fix: Add fromString method to Coordinate class",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T22:59:51.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T22:59:51.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/a99a466eb25ff95a3cdca74fd4455fa3135d9bf9"
+  },
+  {
+    "id": "442e9dc93f4208f92770bebbdce7318b0bf3ba17",
+    "short_id": "442e9dc9",
+    "created_at": "2025-10-19T23:01:22.000+00:00",
+    "parent_ids": [
+      "a99a466eb25ff95a3cdca74fd4455fa3135d9bf9"
+    ],
+    "title": "docs: Add Coding Agent report for Issue #3 implementation",
+    "message": "docs: Add Coding Agent report for Issue #3 implementation",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:01:22.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:01:22.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/442e9dc93f4208f92770bebbdce7318b0bf3ba17"
+  },
+  {
+    "id": "c9df47b3c3f9a156a6a214f53255e79ad58bae42",
+    "short_id": "c9df47b3",
+    "created_at": "2025-10-19T23:03:55.000+00:00",
+    "parent_ids": [
+      "442e9dc93f4208f92770bebbdce7318b0bf3ba17"
+    ],
+    "title": "test: add comprehensive tests for Ship class (issue #3)",
+    "message": "test: add comprehensive tests for Ship class (issue #3)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:03:55.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:03:55.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/c9df47b3c3f9a156a6a214f53255e79ad58bae42"
+  },
+  {
+    "id": "0a4b7a3efcecc30691d29889f69b25acf1ea5439",
+    "short_id": "0a4b7a3e",
+    "created_at": "2025-10-19T23:04:58.000+00:00",
+    "parent_ids": [
+      "c9df47b3c3f9a156a6a214f53255e79ad58bae42"
+    ],
+    "title": "test: add comprehensive tests for Board class (issue #3)",
+    "message": "test: add comprehensive tests for Board class (issue #3)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:04:58.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:04:58.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/0a4b7a3efcecc30691d29889f69b25acf1ea5439"
+  },
+  {
+    "id": "60a2d745a19dafb43fc4e309a8cfc70049b6fd09",
+    "short_id": "60a2d745",
+    "created_at": "2025-10-19T23:06:15.000+00:00",
+    "parent_ids": [
+      "0a4b7a3efcecc30691d29889f69b25acf1ea5439"
+    ],
+    "title": "test: add comprehensive tests for Game class (issue #3)",
+    "message": "test: add comprehensive tests for Game class (issue #3)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:06:15.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:06:15.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/60a2d745a19dafb43fc4e309a8cfc70049b6fd09"
+  },
+  {
+    "id": "82c57a50ddbcf884bffc2be525ed245f54eb8ea5",
+    "short_id": "82c57a50",
+    "created_at": "2025-10-19T23:06:54.000+00:00",
+    "parent_ids": [
+      "60a2d745a19dafb43fc4e309a8cfc70049b6fd09"
+    ],
+    "title": "test: add comprehensive tests for ShotResult class (issue #3)",
+    "message": "test: add comprehensive tests for ShotResult class (issue #3)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:06:54.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:06:54.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/82c57a50ddbcf884bffc2be525ed245f54eb8ea5"
+  },
+  {
+    "id": "72cff384de94cb294f093161d3728a0552b957a0",
+    "short_id": "72cff384",
+    "created_at": "2025-10-19T23:08:43.000+00:00",
+    "parent_ids": [
+      "82c57a50ddbcf884bffc2be525ed245f54eb8ea5"
+    ],
+    "title": "docs: add Testing Agent report for issue #3",
+    "message": "docs: add Testing Agent report for issue #3",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:08:43.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:08:43.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/72cff384de94cb294f093161d3728a0552b957a0"
+  },
+  {
+    "id": "89740eeb85773bc84ef24bba90675ea4437b4823",
+    "short_id": "89740eeb",
+    "created_at": "2025-10-19T23:10:28.000+00:00",
+    "parent_ids": [
+      "72cff384de94cb294f093161d3728a0552b957a0"
+    ],
+    "title": "ci: add -U flag to force Maven dependency updates",
+    "message": "ci: add -U flag to force Maven dependency updates",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:10:28.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:10:28.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/89740eeb85773bc84ef24bba90675ea4437b4823"
+  },
+  {
+    "id": "79b7712430bbffafe358b7897d9d038cd457de9d",
+    "short_id": "79b77124",
+    "created_at": "2025-10-19T23:13:20.000+00:00",
+    "parent_ids": [
+      "89740eeb85773bc84ef24bba90675ea4437b4823"
+    ],
+    "title": "docs: update Testing Agent report with network issue status",
+    "message": "docs: update Testing Agent report with network issue status",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:13:20.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:13:20.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/79b7712430bbffafe358b7897d9d038cd457de9d"
+  },
+  {
+    "id": "e788deaba266e88d374d13fdd15946015c71bc5b",
+    "short_id": "e788deab",
+    "created_at": "2025-10-19T23:16:14.000+00:00",
+    "parent_ids": [
+      "1493e1d68224a350d0d66985b56802cb0d4ff564",
+      "79b7712430bbffafe358b7897d9d038cd457de9d"
+    ],
+    "title": "Merge branch 'feature/issue-3-us-03-ship-damage-announcing-s' into 'master'",
+    "message": "Merge branch 'feature/issue-3-us-03-ship-damage-announcing-s' into 'master'\n\n[US-03] Ship damage, announcing sunk, and finishing\n\nSee merge request simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship!3",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:16:14.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:16:14.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/e788deaba266e88d374d13fdd15946015c71bc5b"
+  },
+  {
+    "id": "b2140de37ab8dbbea1ec0975caf9a29e2096b46f",
+    "short_id": "b2140de3",
+    "created_at": "2025-10-19T23:16:45.000+00:00",
+    "parent_ids": [
+      "79b7712430bbffafe358b7897d9d038cd457de9d"
+    ],
+    "title": "docs: add Review Agent report for issue #3 documenting pipeline failure",
+    "message": "docs: add Review Agent report for issue #3 documenting pipeline failure",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:16:45.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:16:45.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/b2140de37ab8dbbea1ec0975caf9a29e2096b46f"
+  },
+  {
+    "id": "bda688495243ce3cad7fa8ad0d04b735409a8af7",
+    "short_id": "bda68849",
+    "created_at": "2025-10-19T23:20:02.000+00:00",
+    "parent_ids": [
+      "b2140de37ab8dbbea1ec0975caf9a29e2096b46f"
+    ],
+    "title": "docs: add Coding Agent status report for Issue #3 (RETRY_AFTER_REVIEW analysis)",
+    "message": "docs: add Coding Agent status report for Issue #3 (RETRY_AFTER_REVIEW analysis)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:20:02.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:20:02.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/bda688495243ce3cad7fa8ad0d04b735409a8af7"
+  },
+  {
+    "id": "dc065f2be50c96fc949dc7805804fa6cc8b04d4b",
+    "short_id": "dc065f2b",
+    "created_at": "2025-10-19T23:22:12.000+00:00",
+    "parent_ids": [
+      "bda688495243ce3cad7fa8ad0d04b735409a8af7"
+    ],
+    "title": "test: fix compilation errors in ShootingIntegrationTest by replacing isValid() calls",
+    "message": "test: fix compilation errors in ShootingIntegrationTest by replacing isValid() calls",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:22:12.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:22:12.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/dc065f2be50c96fc949dc7805804fa6cc8b04d4b"
+  },
+  {
+    "id": "eed81c1c2b83894a44e4a4e35f7f56e31c50509b",
+    "short_id": "eed81c1c",
+    "created_at": "2025-10-19T23:46:13.000+00:00",
+    "parent_ids": [
+      "dc065f2be50c96fc949dc7805804fa6cc8b04d4b"
+    ],
+    "title": "docs: add Coding Agent status report for Issue #3 (v3)",
+    "message": "docs: add Coding Agent status report for Issue #3 (v3)",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:46:13.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:46:13.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/eed81c1c2b83894a44e4a4e35f7f56e31c50509b"
+  },
+  {
+    "id": "1b7c88b03e14609945e4cfeb4e4937f7c1337af1",
+    "short_id": "1b7c88b0",
+    "created_at": "2025-10-19T23:49:30.000+00:00",
+    "parent_ids": [
+      "eed81c1c2b83894a44e4a4e35f7f56e31c50509b"
+    ],
+    "title": "test: fix compilation errors in ShootingIntegrationTest.java",
+    "message": "test: fix compilation errors in ShootingIntegrationTest.java",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:49:30.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:49:30.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/1b7c88b03e14609945e4cfeb4e4937f7c1337af1"
+  },
+  {
+    "id": "657715850bd8d5de9c6495afa64d86304014339b",
+    "short_id": "65771585",
+    "created_at": "2025-10-19T23:51:42.000+00:00",
+    "parent_ids": [
+      "1b7c88b03e14609945e4cfeb4e4937f7c1337af1"
+    ],
+    "title": "test: add comprehensive tests for issue #3 ship damage and game finishing",
+    "message": "test: add comprehensive tests for issue #3 ship damage and game finishing",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:51:42.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:51:42.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/657715850bd8d5de9c6495afa64d86304014339b"
+  },
+  {
+    "id": "7ac50c76f95dff7db21c1596aab2a6b408201ba7",
+    "short_id": "7ac50c76",
+    "created_at": "2025-10-19T23:53:33.000+00:00",
+    "parent_ids": [
+      "657715850bd8d5de9c6495afa64d86304014339b"
+    ],
+    "title": "docs: add Testing Agent report for issue #3",
+    "message": "docs: add Testing Agent report for issue #3",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:53:33.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:53:33.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/7ac50c76f95dff7db21c1596aab2a6b408201ba7"
+  },
+  {
+    "id": "e3741b86bf3f62e4e1e9693311ef0ef88ae2c187",
+    "short_id": "e3741b86",
+    "created_at": "2025-10-19T23:58:22.000+00:00",
+    "parent_ids": [
+      "7ac50c76f95dff7db21c1596aab2a6b408201ba7"
+    ],
+    "title": "docs: add Review Agent report v2 for issue #3 with test failure analysis",
+    "message": "docs: add Review Agent report v2 for issue #3 with test failure analysis",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:58:22.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:58:22.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/e3741b86bf3f62e4e1e9693311ef0ef88ae2c187"
+  },
+  {
+    "id": "07e53f2287481e13a25fd0605355953b44000e35",
+    "short_id": "07e53f22",
+    "created_at": "2025-10-19T23:59:45.000+00:00",
+    "parent_ids": [
+      "1493e1d68224a350d0d66985b56802cb0d4ff564"
+    ],
+    "title": "feat: Add Coordinate model class for board positions",
+    "message": "feat: Add Coordinate model class for board positions",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-19T23:59:45.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-19T23:59:45.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/07e53f2287481e13a25fd0605355953b44000e35"
+  },
+  {
+    "id": "7ee234eb5c19e3c61eb61e55c01081ae0b9cb1fb",
+    "short_id": "7ee234eb",
+    "created_at": "2025-10-20T00:00:06.000+00:00",
+    "parent_ids": [
+      "07e53f2287481e13a25fd0605355953b44000e35"
+    ],
+    "title": "feat: Add Ship model class with hit tracking and sinking logic",
+    "message": "feat: Add Ship model class with hit tracking and sinking logic",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-20T00:00:06.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-20T00:00:06.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/7ee234eb5c19e3c61eb61e55c01081ae0b9cb1fb"
+  },
+  {
+    "id": "70622f18969bf53510b3d1540006e7b300ad1116",
+    "short_id": "70622f18",
+    "created_at": "2025-10-20T00:00:38.000+00:00",
+    "parent_ids": [
+      "7ee234eb5c19e3c61eb61e55c01081ae0b9cb1fb"
+    ],
+    "title": "feat: Add Board model class with ship placement and shot tracking",
+    "message": "feat: Add Board model class with ship placement and shot tracking",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-20T00:00:38.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-20T00:00:38.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/70622f18969bf53510b3d1540006e7b300ad1116"
+  },
+  {
+    "id": "9f26a2048c29424bdfc452d5bbca72eccb954b45",
+    "short_id": "9f26a204",
+    "created_at": "2025-10-20T00:00:51.000+00:00",
+    "parent_ids": [
+      "70622f18969bf53510b3d1540006e7b300ad1116"
+    ],
+    "title": "feat: Add Player model class with board and computer flag",
+    "message": "feat: Add Player model class with board and computer flag",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-20T00:00:51.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-20T00:00:51.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/9f26a2048c29424bdfc452d5bbca72eccb954b45"
+  },
+  {
+    "id": "1a19c7f155b4c8da1000f7ac9a2b27fde3e3e481",
+    "short_id": "1a19c7f1",
+    "created_at": "2025-10-20T00:01:53.000+00:00",
+    "parent_ids": [
+      "9f26a2048c29424bdfc452d5bbca72eccb954b45"
+    ],
+    "title": "feat: Add ComputerOpponent service with Easy and Normal difficulty levels",
+    "message": "feat: Add ComputerOpponent service with Easy and Normal difficulty levels",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-20T00:01:53.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-20T00:01:53.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/1a19c7f155b4c8da1000f7ac9a2b27fde3e3e481"
+  },
+  {
+    "id": "083c543ab68c98a86ea10d9adcd454283faef7a2",
+    "short_id": "083c543a",
+    "created_at": "2025-10-20T00:02:38.000+00:00",
+    "parent_ids": [
+      "1a19c7f155b4c8da1000f7ac9a2b27fde3e3e481"
+    ],
+    "title": "feat: Add GameService for managing single-player battleship gameplay",
+    "message": "feat: Add GameService for managing single-player battleship gameplay",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-20T00:02:38.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-20T00:02:38.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/083c543ab68c98a86ea10d9adcd454283faef7a2"
+  },
+  {
+    "id": "5a5d6a1a564dd1d968884e5e26eb15e464d62aad",
+    "short_id": "5a5d6a1a",
+    "created_at": "2025-10-20T00:05:17.000+00:00",
+    "parent_ids": [
+      "083c543ab68c98a86ea10d9adcd454283faef7a2"
+    ],
+    "title": "feat: Implement single-player CLI interface for Issue #4",
+    "message": "feat: Implement single-player CLI interface for Issue #4",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-20T00:05:17.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-20T00:05:17.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/5a5d6a1a564dd1d968884e5e26eb15e464d62aad"
+  },
+  {
+    "id": "3c7beb67cf8f488a31c278e6b01e3307b0efe7b8",
+    "short_id": "3c7beb67",
+    "created_at": "2025-10-20T00:06:34.000+00:00",
+    "parent_ids": [
+      "5a5d6a1a564dd1d968884e5e26eb15e464d62aad"
+    ],
+    "title": "docs: Add Coding Agent report for Issue #4 implementation",
+    "message": "docs: Add Coding Agent report for Issue #4 implementation",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-20T00:06:34.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-20T00:06:34.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/3c7beb67cf8f488a31c278e6b01e3307b0efe7b8"
+  },
+  {
+    "id": "7bdcbfe6e7bd6e5170289d4a3ee0363e4afc367c",
+    "short_id": "7bdcbfe6",
+    "created_at": "2025-10-20T01:11:24.000+00:00",
+    "parent_ids": [
+      "1493e1d68224a350d0d66985b56802cb0d4ff564",
+      "3c7beb67cf8f488a31c278e6b01e3307b0efe7b8"
+    ],
+    "title": "Merge branch 'feature/issue-4-us-04-playing-alone-against-th' into 'master'",
+    "message": "Merge branch 'feature/issue-4-us-04-playing-alone-against-th' into 'master'\n\n[US-04] Playing alone against the computer\n\nSee merge request simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship!4",
+    "author_name": "Ivan Esau",
+    "author_email": "esau.ivan@fh-swf.de",
+    "authored_date": "2025-10-20T01:11:24.000+00:00",
+    "committer_name": "Ivan Esau",
+    "committer_email": "esau.ivan@fh-swf.de",
+    "committed_date": "2025-10-20T01:11:24.000+00:00",
+    "trailers": {},
+    "extended_trailers": {},
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship/-/commit/7bdcbfe6e7bd6e5170289d4a3ee0363e4afc367c"
+  }
+]

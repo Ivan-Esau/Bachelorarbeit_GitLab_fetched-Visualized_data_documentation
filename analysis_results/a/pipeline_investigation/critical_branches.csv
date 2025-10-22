@@ -1,0 +1,13 @@
+project,branch,total_pipelines,success_count,failed_count,canceled_count,success_rate,failure_rate,cancellation_rate,compile_failures,test_failures,compile_cancellations,test_cancellations,stuck_pipelines,median_duration_sec,mean_duration_sec,max_duration_sec,min_duration_sec,first_pipeline_date,last_pipeline_date,issue_number,primary_problem,problem_severity
+A09,feature/issue-3-us-03-track-ship-damage-announ,39,0,1,38,0.0,2.56,97.44,1,0,38,38,1,2617.5,2617.5,5188,47,2025-10-14T19:21:11.073Z,2025-10-14T20:26:58.098Z,unknown,TEST_TIMEOUTS,HIGH
+A01,feature/issue-3-us-03-track-ship-damage-announ,20,0,1,19,0.0,5.0,95.0,0,1,19,19,1,8245.0,8245.0,8245,8245,2025-10-12T03:48:43.696Z,2025-10-12T04:46:16.854Z,unknown,TEST_TIMEOUTS,HIGH
+A05,feature/issue-5-us-05-save-load-and-resume-a-m,26,0,2,24,0.0,7.69,92.31,1,1,24,24,0,7.0,7.0,7,7,2025-10-13T04:52:25.258Z,2025-10-13T05:38:45.651Z,unknown,TEST_TIMEOUTS,HIGH
+A01,feature/issue-4-us-04-single-player-mode-vs-co,5,0,1,4,0.0,20.0,80.0,1,0,4,4,0,4.0,4.0,4,4,2025-10-12T04:48:27.032Z,2025-10-12T04:52:40.508Z,unknown,TEST_TIMEOUTS,HIGH
+A01,feature/issue-2-us-02-take-turns-firing-with-h,12,0,9,3,0.0,75.0,25.0,0,9,3,3,3,10.0,3061.22,9466,10,2025-10-12T03:22:12.772Z,2025-10-12T03:44:53.889Z,unknown,TEST_FAILURES,HIGH
+A10,feature/issue-3-us-03-track-ship-damage-announ,72,4,66,2,5.56,91.67,2.78,7,59,1,2,2,12.0,154.33,5411,4,2025-10-19T17:47:23.020Z,2025-10-19T19:13:21.937Z,unknown,TEST_FAILURES,HIGH
+A04,feature/issue-2-us-02-take-turns-firing-with-h,65,9,56,0,13.85,86.15,0.0,1,55,0,0,0,12.0,11.98,13,4,2025-10-12T18:46:49.901Z,2025-10-12T20:12:07.719Z,unknown,TEST_FAILURES,HIGH
+A04,feature/issue-3-us-03-track-ship-damage-announ,26,1,25,0,3.85,96.15,0.0,2,23,0,0,0,12.0,10.85,12,4,2025-10-12T20:13:54.075Z,2025-10-12T20:57:53.531Z,unknown,TEST_FAILURES,HIGH
+A04,feature/issue-4-us-04-single-player-mode-vs-co,35,0,35,0,0.0,100.0,0.0,0,35,0,0,0,12.0,11.4,13,10,2025-10-12T21:01:34.305Z,2025-10-12T21:55:56.249Z,unknown,TEST_FAILURES,HIGH
+A05,feature/issue-3-us-03-track-ship-damage-announ,57,4,53,0,7.02,92.98,0.0,4,49,0,0,0,12.0,11.42,13,4,2025-10-13T02:22:11.391Z,2025-10-13T03:59:02.049Z,unknown,TEST_FAILURES,HIGH
+A08,feature/issue-3-us-03-track-ship-damage-announ,46,3,43,0,6.52,93.48,0.0,6,37,0,0,0,12.0,12.0,69,4,2025-10-14T13:26:27.777Z,2025-10-14T14:38:00.914Z,unknown,TEST_FAILURES,HIGH
+A10,feature/issue-4-us-04-single-player-mode-vs-co,62,2,60,0,3.23,96.77,0.0,5,55,0,0,4,12.0,256.95,6888,4,2025-10-19T19:15:12.845Z,2025-10-19T20:24:33.762Z,unknown,TEST_FAILURES,HIGH

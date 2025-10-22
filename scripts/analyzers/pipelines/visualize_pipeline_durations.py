@@ -30,6 +30,8 @@ import numpy as np
 from matplotlib.patches import Patch
 from matplotlib.lines import Line2D
 from core import load_project_config
+from core.path_helpers import get_data_dir
+from core.config_loader import get_project_letter, get_project_number
 
 # Set style
 sns.set_style("whitegrid")
@@ -41,20 +43,16 @@ def get_pipeline_durations(project_name, data_base_dir=None):
 
     Args:
         project_name: Name of the project directory
-        data_base_dir: Base directory containing project data
+        data_base_dir: Base directory containing project data (deprecated, uses path_helpers)
 
     Returns:
-        Dict mapping issue labels to list of pipeline durations (in seconds)
+        Dict mapping issue labels to list of pipeline durations (in minutes)
     """
-    if data_base_dir is None:
-        from pathlib import Path
-        base_dir = Path(__file__).parent.parent.parent.parent
-        data_base_dir = str(base_dir / 'data_raw')
+    # Use path helper for letter-based structure
+    data_dir = get_data_dir(project_name)
+    pipelines_file = data_dir / 'pipelines.json'
 
-    data_dir = os.path.join(data_base_dir, project_name)
-    pipelines_file = os.path.join(data_dir, 'pipelines.json')
-
-    if not os.path.exists(pipelines_file):
+    if not pipelines_file.exists():
         return {}
 
     with open(pipelines_file, 'r', encoding='utf-8') as f:
@@ -82,7 +80,9 @@ def get_pipeline_durations(project_name, data_base_dir=None):
                 # Truncate long branch names
                 issue_label = ref.split('/')[-1][:20]
 
-            branch_durations[issue_label]['durations'].append(duration)
+            # Convert seconds to minutes
+            duration_minutes = duration / 60.0
+            branch_durations[issue_label]['durations'].append(duration_minutes)
             if status == 'success':
                 branch_durations[issue_label]['success'] += 1
             elif status == 'failed':
@@ -147,7 +147,7 @@ def create_pipeline_boxplot(project_label, pipeline_data, output_file):
     ax.set_xticks(positions)
     ax.set_xticklabels(sorted_labels, fontsize=10, rotation=45, ha='right')
     ax.set_xlabel('Branch/Issue', fontsize=12, fontweight='bold')
-    ax.set_ylabel('Pipeline-Dauer (Sekunden)', fontsize=12, fontweight='bold')
+    ax.set_ylabel('Pipeline-Dauer (Minuten)', fontsize=12, fontweight='bold')
     ax.set_title(f'Projekt {project_label}: Pipeline-Ausführungszeiten pro Branch/Issue',
                  fontsize=14, fontweight='bold', pad=20)
 
@@ -204,11 +204,11 @@ def create_statistics_table(all_project_data, output_file):
                 'Projekt': project_label,
                 'Branch/Issue': issue_label,
                 'n (Pipelines)': len(durations),
-                'Median (s)': np.median(durations),
-                'Mittelwert (s)': np.mean(durations),
-                'Stdabw (s)': np.std(durations, ddof=1) if len(durations) > 1 else 0,
-                'Min (s)': min(durations),
-                'Max (s)': max(durations)
+                'Median (min)': np.median(durations),
+                'Mittelwert (min)': np.mean(durations),
+                'Stdabw (min)': np.std(durations, ddof=1) if len(durations) > 1 else 0,
+                'Min (min)': min(durations),
+                'Max (min)': max(durations)
             }
             stats_list.append(stats)
 
@@ -236,19 +236,31 @@ def main():
 
     print(f"Verarbeite {len(projects)} Projekte...\n")
 
-    # Create output directory
-    output_dir = os.path.join('..', '..', 'visualizations', 'pipeline_durations')
-    os.makedirs(output_dir, exist_ok=True)
-    summary_dir = os.path.join('..', '..', 'visualizations', 'summary', 'pipelines')
-    os.makedirs(summary_dir, exist_ok=True)
+    # Determine project type from first project
+    first_project_name = projects[0][1] if projects else None
+    if not first_project_name:
+        print("[ERROR] Keine Projekte gefunden")
+        return 1
+
+    project_type = get_project_letter(first_project_name)
+
+    # Create output directory (letter-based)
+    from pathlib import Path
+    base_dir = Path(__file__).parent.parent.parent.parent
+    output_dir = base_dir / 'visualizations' / project_type / 'pipeline_durations'
+    output_dir.mkdir(parents=True, exist_ok=True)
+    summary_dir = base_dir / 'visualizations' / project_type / 'summary' / 'pipelines'
+    summary_dir.mkdir(parents=True, exist_ok=True)
 
     # Collect data for all projects
     all_project_data = {}
     total_created = 0
 
     for project_id, project_name in projects:
-        # Extract clean project label
-        project_label = project_name.replace('ba_project_', '').replace('_battleship', '').upper()
+        # Extract project label (e.g., "A01", "B05")
+        letter = get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_label = f"{letter.upper()}{number}"
 
         print(f"Lade {project_label}...", end=' ')
 
@@ -262,7 +274,7 @@ def main():
             all_project_data[project_label] = pipeline_data
 
             # Create visualization
-            output_file = os.path.join(output_dir, f'{project_label.lower()}_pipeline_durations.png')
+            output_file = output_dir / f'{project_label.lower()}_pipeline_durations.png'
             create_pipeline_boxplot(project_label, pipeline_data, output_file)
             total_created += 1
         else:
@@ -275,7 +287,7 @@ def main():
     print()
 
     # Generate statistics table
-    stats_file = os.path.join(summary_dir, 'pipeline_durations_statistics.csv')
+    stats_file = summary_dir / 'pipeline_durations_statistics.csv'
     create_statistics_table(all_project_data, stats_file)
 
     print()

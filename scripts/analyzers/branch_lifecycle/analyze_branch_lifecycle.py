@@ -1,19 +1,21 @@
 """
 Branch Lifecycle Duration Analysis
 
-Analyzes the full lifecycle of each branch from first commit to last commit/merge.
+Analyzes the full lifecycle of each feature branch from first commit to last commit/merge.
 Shows how long each branch was in development.
+
+Note: Master/main branches are EXCLUDED - they represent baseline templates, not feature work.
 
 Data Sources:
 - Pipelines: To determine first and last activity on each branch
 - Merge Requests: To get merge timestamps
-- Branches: To identify all branches
+- Branches: To identify all feature branches
 
 Metrics Calculated:
 - Branch lifetime (first pipeline to last pipeline/merge)
-- Development duration per branch
+- Development duration per feature branch
 - Time to merge
-- Average branch duration per project
+- Average branch duration per project (feature branches only)
 
 Output:
     - branch_lifecycle_durations.csv: Per-branch duration data
@@ -35,6 +37,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from pathlib import Path
 from datetime import datetime, timedelta
+from core.path_helpers import get_data_dir
+from core.config_loader import get_project_letter, get_project_number
 
 
 def parse_datetime(dt_string):
@@ -54,15 +58,15 @@ def analyze_branch_lifecycle(project_name):
     Returns:
         List of dictionaries with branch lifecycle data
     """
-    base_dir = Path(__file__).parent.parent.parent.parent
-    project_dir = base_dir / 'data_raw' / project_name
+    # Use path helper to get correct letter-based path
+    project_dir = get_data_dir(project_name)
 
     # Load data
-    with open(project_dir / 'branches.json') as f:
+    with open(project_dir / 'branches.json', encoding='utf-8') as f:
         branches = json.load(f)
-    with open(project_dir / 'pipelines.json') as f:
+    with open(project_dir / 'pipelines.json', encoding='utf-8') as f:
         pipelines = json.load(f)
-    with open(project_dir / 'merge_requests.json') as f:
+    with open(project_dir / 'merge_requests.json', encoding='utf-8') as f:
         merge_requests = json.load(f)
 
     # Create MR lookup by source branch
@@ -77,8 +81,8 @@ def analyze_branch_lifecycle(project_name):
     for branch in branches:
         branch_name = branch['name']
 
-        # Skip master/main
-        if branch_name in ['master', 'main']:
+        # Skip master/main branches - they represent baseline template, not feature work
+        if branch_name.lower() in ['master', 'main']:
             continue
 
         # Get all pipelines for this branch
@@ -376,10 +380,18 @@ def main():
 
     print(f"Analyzing {len(projects)} projects...\n")
 
-    # Create output directories
+    # Determine project type from first project for letter-based structure
+    first_project_name = projects[0][1] if projects else None
+    if not first_project_name:
+        print("[ERROR] No projects found")
+        return 1
+
+    project_type = get_project_letter(first_project_name)
+
+    # Create output directories (letter-based structure)
     base_dir = Path(__file__).parent.parent.parent.parent
-    output_dir = base_dir / 'visualizations/branch_lifecycle'  # Per-project charts
-    summary_dir = base_dir / 'visualizations/summary/branch_lifecycle'  # Summary files
+    output_dir = base_dir / 'visualizations' / project_type / 'branch_lifecycle'  # Per-project charts
+    summary_dir = base_dir / 'visualizations' / project_type / 'summary' / 'branch_lifecycle'  # Summary files
     output_dir.mkdir(parents=True, exist_ok=True)
     summary_dir.mkdir(parents=True, exist_ok=True)
 
@@ -387,7 +399,10 @@ def main():
     all_lifecycle_data = []
 
     for project_id, project_name in projects:
-        project_label = project_name.replace('ba_project_', '').replace('_battleship', '').upper()
+        # Extract letter and number to create label (e.g., "A01", "B05")
+        letter = get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_label = f"{letter.upper()}{number}"
 
         print(f"Analyzing {project_label}...", end=' ')
 

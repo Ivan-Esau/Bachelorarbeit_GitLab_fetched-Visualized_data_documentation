@@ -1,0 +1,6 @@
+mr_iid,title,source_branch,merged_at,pipeline_id,compile_status,test_status,is_valid,project
+1,[US-01] Setting ships somewhere on the board,feature/issue-1-us-01-setting-ships-somewhere-,2025-10-19 02:12:44.171000+00:00,8495,success,failed,False,B05
+3,"[US-03] Ship damage, announcing sunk, and finishing",feature/issue-3-us-03-ship-damage-announcing-s,2025-10-19 03:36:57.561000+00:00,8525,success,failed,False,B05
+5,[US-05] Saving and restoring the game,feature/issue-5-us-05-saving-and-restoring-the,2025-10-19 07:10:53.703000+00:00,8576,success,failed,False,B05
+1,[US-01] Ship placement implementation,feature/issue-1-us-01-setting-ships-somewhere-,2025-10-20 01:57:36.047000+00:00,8914,failed,skipped,False,B07
+5,[US-05] Saving and restoring the game,feature/issue-5-us-05-saving-and-restoring-the,2025-10-20 07:09:39.512000+00:00,9019,success,failed,False,B07

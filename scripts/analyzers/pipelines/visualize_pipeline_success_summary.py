@@ -2,7 +2,7 @@
 Pipeline Job Success Summary - All Projects Comparison
 
 Creates a summary visualization comparing pipeline job success rates across all projects.
-Shows aggregated success rates for all branches within each project side by side.
+Uses equal-weight aggregation: each pipeline weighted equally (scientifically correct).
 
 Data Source:
 - pipelines.json from each project
@@ -16,6 +16,10 @@ Metrics:
 - Build-Only Success Rate
 - Build Failed Rate
 - Canceled/Skipped Rate
+
+Aggregation Method:
+- Equal-weight: sums all pipelines, then calculates percentages
+- Each pipeline run has equal weight (not averaged by branch)
 
 Usage:
     python visualize_pipeline_success_summary.py
@@ -33,6 +37,8 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from core import load_project_config
+from core.path_helpers import get_data_dir
+from core.config_loader import get_project_letter, get_project_number
 
 # Set style
 sns.set_style("whitegrid")
@@ -40,21 +46,18 @@ sns.set_style("whitegrid")
 
 def get_project_pipeline_success(project_name, data_base_dir=None):
     """
-    Calculate average pipeline success rates per branch, then average across branches
+    Calculate pipeline success rates using equal-weight aggregation (scientifically correct)
 
     Args:
         project_name: Name of the project directory
-        data_base_dir: Base directory containing project data
+        data_base_dir: Base directory containing project data (deprecated, uses path_helpers)
 
     Returns:
-        Dict with averaged pipeline statistics
+        Dict with aggregated pipeline statistics (each pipeline weighted equally)
     """
-    if data_base_dir is None:
-        base_dir = Path(__file__).parent.parent.parent.parent
-        data_base_dir = str(base_dir / 'data_raw')
-
-    data_dir = os.path.join(data_base_dir, project_name)
-    pipelines_file = os.path.join(data_dir, 'pipelines.json')
+    # Use path helper for letter-based structure
+    data_dir = get_data_dir(project_name)
+    pipelines_file = data_dir / 'pipelines.json'
 
     if not os.path.exists(pipelines_file):
         return None
@@ -118,38 +121,36 @@ def get_project_pipeline_success(project_name, data_base_dir=None):
         else:
             stats['build_failed'] += 1
 
-    # Calculate per-branch percentages, then average them
+    # Sum all counts across branches (equal-weight aggregation)
     if not branch_stats:
         return None
 
-    branch_percentages = []
     total_branches = len(branch_stats)
 
-    for branch, stats in branch_stats.items():
-        total = stats['total_pipelines']
-        if total > 0:
-            branch_percentages.append({
-                'both_success_pct': stats['both_success'] / total * 100,
-                'build_only_pct': stats['build_only'] / total * 100,
-                'build_failed_pct': stats['build_failed'] / total * 100,
-                'canceled_pct': stats['canceled'] / total * 100
-            })
+    # Sum all counts
+    total_both_success = sum(stats['both_success'] for stats in branch_stats.values())
+    total_build_only = sum(stats['build_only'] for stats in branch_stats.values())
+    total_build_failed = sum(stats['build_failed'] for stats in branch_stats.values())
+    total_canceled = sum(stats['canceled'] for stats in branch_stats.values())
 
-    # Average the percentages across all branches
-    avg_both_success = np.mean([b['both_success_pct'] for b in branch_percentages])
-    avg_build_only = np.mean([b['build_only_pct'] for b in branch_percentages])
-    avg_build_failed = np.mean([b['build_failed_pct'] for b in branch_percentages])
-    avg_canceled = np.mean([b['canceled_pct'] for b in branch_percentages])
+    # Calculate percentages from totals (each pipeline weighted equally)
+    if total_pipelines_count > 0:
+        both_success_pct = (total_both_success / total_pipelines_count) * 100
+        build_only_pct = (total_build_only / total_pipelines_count) * 100
+        build_failed_pct = (total_build_failed / total_pipelines_count) * 100
+        canceled_pct = (total_canceled / total_pipelines_count) * 100
+    else:
+        both_success_pct = build_only_pct = build_failed_pct = canceled_pct = 0.0
 
     return {
         'total_pipelines': total_pipelines_count,
         'total_branches': total_branches,
-        'both_success_pct': avg_both_success,
-        'build_only_pct': avg_build_only,
-        'build_failed_pct': avg_build_failed,
-        'canceled_pct': avg_canceled,
-        'total_success_rate': avg_both_success + avg_build_only,
-        'test_success_rate': avg_both_success
+        'both_success_pct': both_success_pct,
+        'build_only_pct': build_only_pct,
+        'build_failed_pct': build_failed_pct,
+        'canceled_pct': canceled_pct,
+        'total_success_rate': both_success_pct + build_only_pct,
+        'test_success_rate': both_success_pct
     }
 
 
@@ -218,10 +219,11 @@ def create_summary_visualization(project_stats, output_file):
                     ha='center', va='center', fontweight='bold', fontsize=9, color='white')
 
     ax1.set_xlabel('Projekt', fontsize=13, fontweight='bold')
-    ax1.set_ylabel('Durchschnittlicher Anteil (%)', fontsize=13, fontweight='bold')
+    ax1.set_ylabel('Anteil (%)', fontsize=13, fontweight='bold')
     ax1.set_title('Pipeline-Erfolgsraten im Projektvergleich\n' +
-                  'Durchschnitt über alle Branches pro Projekt (ohne Master)',
-                  fontsize=15, fontweight='bold', pad=20)
+                  'Aggregiert über alle Pipelines pro Projekt (ohne Master)\n' +
+                  'Aggregation Method: Equal-weight (each pipeline weighted equally)',
+                  fontsize=14, fontweight='bold', pad=20)
     ax1.set_xticks(x)
     ax1.set_xticklabels(projects, fontsize=11)
     ax1.set_ylim(0, 100)
@@ -273,11 +275,22 @@ def main():
 
     print(f"Analyzing {len(projects)} projects...\n")
 
+    # Determine project type from first project for letter-based structure
+    first_project_name = projects[0][1] if projects else None
+    if not first_project_name:
+        print("[ERROR] No projects found")
+        return 1
+
+    project_type = get_project_letter(first_project_name)
+
     # Collect statistics from all projects
     all_stats = []
 
     for project_id, project_name in projects:
-        project_label = project_name.replace('ba_project_', '').replace('_battleship', '').upper()
+        # Extract project label (e.g., "A01", "B05")
+        letter = get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_label = f"{letter.upper()}{number}"
 
         print(f"Processing {project_label}...", end=' ')
 
@@ -306,9 +319,9 @@ def main():
     print("=" * 100)
     print()
 
-    # Create output directory
+    # Create output directory (letter-based structure)
     base_dir = Path(__file__).parent.parent.parent.parent
-    output_dir = base_dir / 'visualizations/summary/pipelines'
+    output_dir = base_dir / 'visualizations' / project_type / 'summary' / 'pipelines'
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Save CSV
@@ -323,7 +336,7 @@ def main():
     # Print summary statistics
     print()
     print("=" * 100)
-    print("SUMMARY STATISTICS (AVERAGED PER BRANCH)")
+    print("SUMMARY STATISTICS (EQUAL-WEIGHT AGGREGATION)")
     print("=" * 100)
     print()
 
@@ -335,12 +348,12 @@ def main():
 
     print(f"Total pipelines analyzed: {total_pipelines}")
     print(f"Total branches analyzed: {total_branches}")
-    print(f"Average build success rate (per branch avg): {avg_success_rate:.1f}%")
+    print(f"Average build success rate (equal-weight): {avg_success_rate:.1f}%")
     print(f"Average full success rate (Build+Test): {avg_test_success_rate:.1f}%")
     print(f"Average canceled/skipped rate: {avg_canceled_rate:.1f}%")
     print()
 
-    print("Per-project average rates (averaged across branches):")
+    print("Per-project rates (each pipeline weighted equally):")
     for _, row in df.iterrows():
         print(f"  {row['project']}: {row['total_success_rate']:.1f}% build, "
               f"{row['test_success_rate']:.1f}% full, "

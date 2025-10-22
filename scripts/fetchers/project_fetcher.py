@@ -6,8 +6,12 @@ Coordinates all individual fetchers to collect complete project data
 
 from datetime import datetime
 from typing import Dict, Any
-from core.gitlab_client import GitLabClient
-from core.file_manager import FileManager
+try:
+    from scripts.core.gitlab_client import GitLabClient
+    from scripts.core.file_manager import FileManager
+except ModuleNotFoundError:
+    from core.gitlab_client import GitLabClient
+    from core.file_manager import FileManager
 from .issues_fetcher import IssuesFetcher
 from .branches_fetcher import BranchesFetcher
 from .merge_requests_fetcher import MergeRequestsFetcher
@@ -181,17 +185,29 @@ class ProjectFetcher:
         print(f"    Jobs with Coverage: {stats['jobs_with_coverage']}")
         print(f"    API Requests Made: {stats['total_api_requests']}")
 
-    def save(self, project_data: Dict[str, Any], output_dir: str) -> None:
+    def save(self, project_data: Dict[str, Any], output_dir: str, project_type: str = None) -> None:
         """
-        Save project data to files
+        Save project data to files using letter-based structure
 
         Args:
             project_data: Complete project data
             output_dir: Output directory
+            project_type: Optional project type (e.g., 'a', 'b')
         """
-        files = FileManager.save_project_data(project_data, output_dir)
+        try:
+            from scripts.core.config_loader import get_project_letter, get_project_number
+        except ModuleNotFoundError:
+            from scripts.core.config_loader import get_project_letter, get_project_number
 
-        print(f"\n  Saved 9 files to {output_dir}/{project_data['project_name']}/")
+        # Determine project path for display
+        project_name = project_data['project_name']
+        letter = project_type if project_type else get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_id = f"{letter}{number}"
+
+        files = FileManager.save_project_data(project_data, output_dir, project_type)
+
+        print(f"\n  Saved 9 files to {output_dir}/{letter}/{project_id}/")
         for file_path in files:
             import os
             filename = os.path.basename(file_path)

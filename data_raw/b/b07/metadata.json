@@ -1,0 +1,16 @@
+{
+  "project_id": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b07_battleship",
+  "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b07_battleship",
+  "fetch_date": "2025-10-22T03:57:10.772361",
+  "stats": {
+    "total_issues": 5,
+    "total_branches": 6,
+    "total_merge_requests": 5,
+    "total_commits": 112,
+    "total_pipelines": 124,
+    "total_artifacts": 235,
+    "artifact_size_mb": 7.37,
+    "jobs_with_coverage": 12,
+    "total_api_requests": 260
+  }
+}

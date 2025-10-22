@@ -6,15 +6,19 @@ Uses modular components for better maintainability:
 - Fetchers: Individual fetchers for each data type
 - Orchestrator: Project fetcher to coordinate everything
 
+Supports letter-based project structure (a, b, c, etc.)
+
 This is the NEW modular version. The old fetch_raw_data.py is kept for reference.
 """
 
 import os
+import argparse
 from datetime import datetime
 from dotenv import load_dotenv
 
 # Import core components
-from core import GitLabClient, load_project_config, FileManager
+from core import GitLabClient, FileManager
+from core.config_loader import load_project_types, get_projects_by_letter
 
 # Import project fetcher
 from fetchers import ProjectFetcher
@@ -22,6 +26,18 @@ from fetchers import ProjectFetcher
 
 def main():
     """Main execution - fetch all project data using modular system"""
+
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description='Fetch GitLab data for projects')
+    parser.add_argument(
+        '--project-type',
+        type=str,
+        default='a',
+        help='Project type letter (a, b, c, etc.). Default: a'
+    )
+    args = parser.parse_args()
+
+    project_type = args.project_type
 
     # Load environment variables
     load_dotenv('../.env')
@@ -33,17 +49,27 @@ def main():
         print("ERROR: GITLAB_TOKEN not found in .env file")
         return
 
-    # Load projects from config
+    # Load projects from config for specified type
     try:
-        projects = load_project_config()  # Uses default path
+        projects_data = get_projects_by_letter(project_type)
+        # Convert to (project_id, project_name) tuples
+        # project_id is the full GitLab path for API calls
+        # project_name is also the full path (used for file organization and metadata)
+        projects = [(gitlab_full_path, gitlab_full_path) for letter, num, gitlab_full_path in projects_data]
     except Exception as e:
         print(f"ERROR: {e}")
+        return
+
+    if not projects:
+        print(f"ERROR: No projects found for type '{project_type}'")
+        print(f"Check config/project_types.json to enable this project type")
         return
 
     print("="*80)
     print("MODULAR GITLAB DATA FETCHER")
     print("="*80)
     print(f"GitLab URL: {GITLAB_URL}")
+    print(f"Project Type: {project_type}")
     print(f"Projects: {len(projects)}")
     print()
 
@@ -66,8 +92,8 @@ def main():
             # Fetch complete data
             project_data = project_fetcher.fetch_complete_project(project_id, project_name)
 
-            # Save data
-            project_fetcher.save(project_data, output_dir)
+            # Save data with project type
+            project_fetcher.save(project_data, output_dir, project_type)
 
             # Track metadata
             all_metadata.append({
@@ -83,15 +109,19 @@ def main():
             traceback.print_exc()
             continue
 
-    # Save overall summary
+    # Save overall summary in type-specific location
     summary = {
         'fetch_date': datetime.now().isoformat(),
+        'project_type': project_type,
         'projects_fetched': successful_projects,
         'projects_total': len(projects),
         'projects': all_metadata
     }
 
-    summary_file = os.path.join(output_dir, '_fetch_summary.json')
+    # Save summary in metadata folder
+    metadata_dir = os.path.join(output_dir, '_metadata')
+    FileManager.ensure_directory(metadata_dir)
+    summary_file = os.path.join(metadata_dir, f'fetch_summary_type_{project_type}.json')
     FileManager.save_json(summary, summary_file)
 
     # Print final summary

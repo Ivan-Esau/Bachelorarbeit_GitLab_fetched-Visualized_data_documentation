@@ -1,0 +1,35 @@
+{
+  "project_types": {
+    "a": {
+      "name": "Battleship Projects (Series A)",
+      "description": "Student projects implementing Battleship game - First series",
+      "letter": "a",
+      "gitlab_group": "simulationsprojects_bachelorarbeit_ivan_esau",
+      "gitlab_prefix": "ba_project_a",
+      "gitlab_suffix": "_battleship",
+      "enabled": true,
+      "projects": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]
+    },
+    "b": {
+      "name": "Battleship Projects (Series B)",
+      "description": "Student projects implementing Battleship game - Second series",
+      "letter": "b",
+      "gitlab_group": "simulationsprojects_bachelorarbeit_ivan_esau",
+      "gitlab_prefix": "ba_project_b",
+      "gitlab_suffix": "_battleship",
+      "enabled": true,
+      "projects": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]
+    },
+    "c": {
+      "name": "Future Series C",
+      "description": "Third series of projects - TBD",
+      "letter": "c",
+      "gitlab_prefix": "ba_project_c",
+      "gitlab_suffix": "_game",
+      "enabled": false,
+      "projects": []
+    }
+  },
+  "active_project_types": ["b"],
+  "default_project_type": "b"
+}

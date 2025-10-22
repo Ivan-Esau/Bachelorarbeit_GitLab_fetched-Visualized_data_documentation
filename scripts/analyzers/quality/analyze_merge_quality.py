@@ -27,6 +27,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 from datetime import datetime
+from core.path_helpers import get_data_dir
+from core.config_loader import get_project_letter, get_project_number
 
 
 def parse_datetime(dt_string):
@@ -45,23 +47,20 @@ def analyze_project_merges(project_name, data_base_dir=None):
 
     Args:
         project_name: Name of the project directory
-        data_base_dir: Base directory containing project data
+        data_base_dir: Base directory containing project data (deprecated, uses path_helpers)
 
     Returns:
         Dict with merge statistics
     """
-    if data_base_dir is None:
-        base_dir = Path(__file__).parent.parent.parent.parent
-        data_base_dir = base_dir / 'data_raw'
-
-    project_dir = Path(data_base_dir) / project_name
+    # Use path helper for letter-based structure
+    project_dir = get_data_dir(project_name)
 
     # Load data
-    with open(project_dir / 'branches.json') as f:
+    with open(project_dir / 'branches.json', encoding='utf-8') as f:
         branches = json.load(f)
-    with open(project_dir / 'merge_requests.json') as f:
+    with open(project_dir / 'merge_requests.json', encoding='utf-8') as f:
         merge_requests = json.load(f)
-    with open(project_dir / 'pipelines.json') as f:
+    with open(project_dir / 'pipelines.json', encoding='utf-8') as f:
         pipelines = json.load(f)
 
     # Filter merged MRs
@@ -159,7 +158,7 @@ def create_merge_quality_visualization(stats_df, output_file):
             f"{row['Invalid Merges']:.0f}",
             f"{row['Success Rate (%)']:.1f}%" if row['Total Merges'] > 0 else "N/A",
             f"{row['Invalid Rate (%)']:.1f}%" if row['Total Merges'] > 0 else "N/A",
-            f"{row['Solved Issue (%)']:.1f}%"
+            f"{row['Branch Success Rate (%)']:.1f}%"
         ])
 
     # Create figure
@@ -169,7 +168,7 @@ def create_merge_quality_visualization(stats_df, output_file):
 
     # Column headers
     columns = ['Project', 'Feature\nBranches', 'Total\nMerges', 'Valid\nMerges ✓',
-               'Invalid\nMerges ✗', 'Success\nRate', 'Invalid\nRate', 'Solved\nIssue %']
+               'Invalid\nMerges ✗', 'Success\nRate', 'Invalid\nRate', 'Branch\nSuccess %']
 
     # Create table
     table = ax.table(
@@ -240,8 +239,8 @@ def create_merge_quality_visualization(stats_df, output_file):
                 else:
                     cell.set_facecolor((0.95, 0.95, 0.95))
 
-            # Color Solved Issue % column
-            elif j == 7:  # Solved Issue %
+            # Color Branch Success Rate % column
+            elif j == 7:  # Branch Success Rate %
                 rate = float(table_data[i][7].replace('%', ''))
                 if rate >= 50:
                     cell.set_facecolor((0.4, 0.8, 0.4))  # Green
@@ -263,7 +262,7 @@ def create_merge_quality_visualization(stats_df, output_file):
         f'Total: {total_row["Total Merges"]:.0f} merges | '
         f'Valid: {total_row["Valid Merges"]:.0f} ({total_row["Success Rate (%)"]:.1f}%) | '
         f'Invalid: {total_row["Invalid Merges"]:.0f} ({total_row["Invalid Rate (%)"]:.1f}%) | '
-        f'Overall Solved Issues: {total_row["Solved Issue (%)"]:.1f}%',
+        f'Overall Branch Success: {total_row["Branch Success Rate (%)"]:.1f}%',
         fontsize=13,
         fontweight='bold',
         pad=20
@@ -295,13 +294,24 @@ def main():
 
     print(f"Analyzing {len(projects)} projects...\n")
 
+    # Determine project type from first project for letter-based structure
+    first_project_name = projects[0][1] if projects else None
+    if not first_project_name:
+        print("[ERROR] No projects found")
+        return 1
+
+    project_type = get_project_letter(first_project_name)
+
     # Analyze each project
     project_stats = []
     all_valid_details = []
     all_invalid_details = []
 
     for project_id, project_name in projects:
-        project_label = project_name.replace('ba_project_', '').replace('_battleship', '').upper()
+        # Extract project label (e.g., "A01", "B05")
+        letter = get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_label = f"{letter.upper()}{number}"
 
         print(f"Analyzing {project_label}...", end=' ')
 
@@ -321,11 +331,11 @@ def main():
             invalid_rate = 0
             print(f"[OK] No merges")
 
-        # Calculate solved issue percentage (valid merges / total branches)
+        # Calculate branch success rate (valid merges / total branches)
         if total_branches > 0:
-            solved_issue_rate = (valid / total_branches * 100)
+            branch_success_rate = (valid / total_branches * 100)
         else:
-            solved_issue_rate = 0
+            branch_success_rate = 0
 
         project_stats.append({
             'Project': project_label,
@@ -335,7 +345,7 @@ def main():
             'Invalid Merges': invalid,
             'Success Rate (%)': success_rate,
             'Invalid Rate (%)': invalid_rate,
-            'Solved Issue (%)': solved_issue_rate
+            'Branch Success Rate (%)': branch_success_rate
         })
 
         # Collect details
@@ -349,9 +359,9 @@ def main():
 
     print()
 
-    # Create output directory
+    # Create output directory (letter-based structure)
     base_dir = Path(__file__).parent.parent.parent.parent
-    output_dir = base_dir / 'visualizations/summary/quality_analysis'
+    output_dir = base_dir / 'visualizations' / project_type / 'summary' / 'quality_analysis'
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Save statistics CSV
@@ -366,7 +376,7 @@ def main():
         'Invalid Merges': stats_df['Invalid Merges'].sum(),
         'Success Rate (%)': 0,
         'Invalid Rate (%)': 0,
-        'Solved Issue (%)': 0
+        'Branch Success Rate (%)': 0
     }
 
     if totals['Total Merges'] > 0:
@@ -374,7 +384,7 @@ def main():
         totals['Invalid Rate (%)'] = (totals['Invalid Merges'] / totals['Total Merges'] * 100)
 
     if totals['Total Branches'] > 0:
-        totals['Solved Issue (%)'] = (totals['Valid Merges'] / totals['Total Branches'] * 100)
+        totals['Branch Success Rate (%)'] = (totals['Valid Merges'] / totals['Total Branches'] * 100)
 
     stats_df = pd.concat([stats_df, pd.DataFrame([totals])], ignore_index=True)
 
@@ -409,19 +419,19 @@ def main():
 
     # Print table
     print(f"{'Project':<10} {'Branches':>10} {'Merges':>8} {'Valid':>8} {'Invalid':>8} "
-          f"{'Success %':>12} {'Invalid %':>12} {'Solved %':>12}")
-    print("-" * 110)
+          f"{'Success %':>12} {'Invalid %':>12} {'Br.Success %':>14}")
+    print("-" * 112)
 
     for _, row in stats_df.iterrows():
         if row['Total Merges'] > 0:
             print(f"{row['Project']:<10} {row['Total Branches']:>10.0f} {row['Total Merges']:>8.0f} "
                   f"{row['Valid Merges']:>8.0f} {row['Invalid Merges']:>8.0f} "
                   f"{row['Success Rate (%)']:>11.1f}% {row['Invalid Rate (%)']:>11.1f}% "
-                  f"{row['Solved Issue (%)']:>11.1f}%")
+                  f"{row['Branch Success Rate (%)']:>13.1f}%")
         else:
             print(f"{row['Project']:<10} {row['Total Branches']:>10.0f} {row['Total Merges']:>8.0f} "
                   f"{row['Valid Merges']:>8.0f} {row['Invalid Merges']:>8.0f} "
-                  f"{'N/A':>12} {'N/A':>12} {row['Solved Issue (%)']:>11.1f}%")
+                  f"{'N/A':>12} {'N/A':>12} {row['Branch Success Rate (%)']:>13.1f}%")
 
     print()
 

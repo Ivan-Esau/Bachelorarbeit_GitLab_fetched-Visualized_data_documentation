@@ -33,6 +33,8 @@ from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
 from scipy import stats
+from core.path_helpers import get_data_dir
+from core.config_loader import get_project_letter, get_project_number
 
 
 def parse_datetime(dt_string):
@@ -51,19 +53,16 @@ def analyze_pipeline_infrastructure(project_name, data_base_dir=None):
 
     Args:
         project_name: Name of the project directory
-        data_base_dir: Base directory containing project data
+        data_base_dir: Base directory containing project data (deprecated, uses path_helpers)
 
     Returns:
         Dict with infrastructure metrics
     """
-    if data_base_dir is None:
-        base_dir = Path(__file__).parent.parent.parent.parent
-        data_base_dir = base_dir / 'data_raw'
-
-    project_dir = Path(data_base_dir) / project_name
+    # Use path helper for letter-based structure
+    project_dir = get_data_dir(project_name)
 
     # Load data
-    with open(project_dir / 'pipelines.json') as f:
+    with open(project_dir / 'pipelines.json', encoding='utf-8') as f:
         pipelines = json.load(f)
 
     # Initialize counters
@@ -183,7 +182,7 @@ def calculate_correlations(combined_df):
         'skipped_rate',
         'job_canceled_rate',
         'Success Rate (%)',
-        'Solved Issue (%)'
+        'Branch Success Rate (%)'
     ]
 
     # Filter to only include projects with merges
@@ -216,28 +215,30 @@ def create_scatter_plots(df, output_file):
 
     # Create figure with 2 subplots
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
-    fig.suptitle('Infrastructure Problems vs Project Success - Correlation Analysis',
-                 fontsize=15, fontweight='bold', y=0.98)
+    n_projects = len(df)
+    fig.suptitle(f'Infrastructure Problems vs Project Success - Correlation Analysis\n'
+                 f'Sample Size: n={n_projects} projects | Note: Small sample size limits statistical power',
+                 fontsize=14, fontweight='bold', y=0.96)
 
     # Plot 1: Average Duration vs Solved Issue %
     for tier, color in [('Good', '#27AE60'), ('Moderate', '#F39C12'), ('Poor', '#E74C3C')]:
         tier_data = df[df['tier'] == tier]
-        ax1.scatter(tier_data['avg_duration'], tier_data['Solved Issue (%)'],
+        ax1.scatter(tier_data['avg_duration'], tier_data['Branch Success Rate (%)'],
                    c=color, s=200, alpha=0.7, edgecolors='black', linewidth=1.5,
                    label=f'{tier} Infrastructure', zorder=3)
 
     # Add trendline
-    z = np.polyfit(df['avg_duration'], df['Solved Issue (%)'], 1)
+    z = np.polyfit(df['avg_duration'], df['Branch Success Rate (%)'], 1)
     p = np.poly1d(z)
     x_trend = np.linspace(df['avg_duration'].min(), df['avg_duration'].max(), 100)
     ax1.plot(x_trend, p(x_trend), "k--", alpha=0.5, linewidth=2, zorder=2)
 
     # Calculate correlation
-    corr1, _ = stats.pearsonr(df['avg_duration'], df['Solved Issue (%)'])
+    corr1, _ = stats.pearsonr(df['avg_duration'], df['Branch Success Rate (%)'])
     r_squared1 = corr1 ** 2
 
     ax1.set_xlabel('Average Pipeline Duration (seconds)', fontsize=12, fontweight='bold')
-    ax1.set_ylabel('Solved Issue (%)', fontsize=12, fontweight='bold')
+    ax1.set_ylabel('Branch Success Rate (%)', fontsize=12, fontweight='bold')
     ax1.set_title(f'Duration vs Success\nCorrelation: {corr1:.3f} | R²: {r_squared1:.3f}',
                   fontsize=13, fontweight='bold', pad=10)
     ax1.grid(True, alpha=0.3)
@@ -245,29 +246,29 @@ def create_scatter_plots(df, output_file):
 
     # Add project labels
     for _, row in df.iterrows():
-        ax1.annotate(row['Project'], (row['avg_duration'], row['Solved Issue (%)']),
+        ax1.annotate(row['Project'], (row['avg_duration'], row['Branch Success Rate (%)']),
                     xytext=(5, 5), textcoords='offset points', fontsize=9,
                     fontweight='bold', alpha=0.7)
 
     # Plot 2: Cancellation Rate vs Solved Issue %
     for tier, color in [('Good', '#27AE60'), ('Moderate', '#F39C12'), ('Poor', '#E74C3C')]:
         tier_data = df[df['tier'] == tier]
-        ax2.scatter(tier_data['canceled_rate'], tier_data['Solved Issue (%)'],
+        ax2.scatter(tier_data['canceled_rate'], tier_data['Branch Success Rate (%)'],
                    c=color, s=200, alpha=0.7, edgecolors='black', linewidth=1.5,
                    label=f'{tier} Infrastructure', zorder=3)
 
     # Add trendline
-    z = np.polyfit(df['canceled_rate'], df['Solved Issue (%)'], 1)
+    z = np.polyfit(df['canceled_rate'], df['Branch Success Rate (%)'], 1)
     p = np.poly1d(z)
     x_trend = np.linspace(df['canceled_rate'].min(), df['canceled_rate'].max(), 100)
     ax2.plot(x_trend, p(x_trend), "k--", alpha=0.5, linewidth=2, zorder=2)
 
     # Calculate correlation
-    corr2, _ = stats.pearsonr(df['canceled_rate'], df['Solved Issue (%)'])
+    corr2, _ = stats.pearsonr(df['canceled_rate'], df['Branch Success Rate (%)'])
     r_squared2 = corr2 ** 2
 
     ax2.set_xlabel('Pipeline Cancellation Rate (%)', fontsize=12, fontweight='bold')
-    ax2.set_ylabel('Solved Issue (%)', fontsize=12, fontweight='bold')
+    ax2.set_ylabel('Branch Success Rate (%)', fontsize=12, fontweight='bold')
     ax2.set_title(f'Cancellation vs Success\nCorrelation: {corr2:.3f} | R²: {r_squared2:.3f}',
                   fontsize=13, fontweight='bold', pad=10)
     ax2.grid(True, alpha=0.3)
@@ -275,7 +276,7 @@ def create_scatter_plots(df, output_file):
 
     # Add project labels
     for _, row in df.iterrows():
-        ax2.annotate(row['Project'], (row['canceled_rate'], row['Solved Issue (%)']),
+        ax2.annotate(row['Project'], (row['canceled_rate'], row['Branch Success Rate (%)']),
                     xytext=(5, 5), textcoords='offset points', fontsize=9,
                     fontweight='bold', alpha=0.7)
 
@@ -321,11 +322,11 @@ def create_multipanel_dashboard(df, output_file):
 
     # Panel 2: Success Metrics
     ax2 = fig.add_subplot(gs[1, :])
-    bars3 = ax2.bar(df['Project'], df['Solved Issue (%)'], color='#27AE60',
+    bars3 = ax2.bar(df['Project'], df['Branch Success Rate (%)'], color='#27AE60',
                    alpha=0.8, edgecolor='black', linewidth=1.5)
 
     # Color bars by value
-    for i, (bar, val) in enumerate(zip(bars3, df['Solved Issue (%)'])):
+    for i, (bar, val) in enumerate(zip(bars3, df['Branch Success Rate (%)'])):
         if val >= 50:
             bar.set_color('#27AE60')  # Green
         elif val > 0:
@@ -334,7 +335,7 @@ def create_multipanel_dashboard(df, output_file):
             bar.set_color('#E74C3C')  # Red
 
     ax2.set_xlabel('Project', fontsize=11, fontweight='bold')
-    ax2.set_ylabel('Solved Issue (%)', fontsize=11, fontweight='bold')
+    ax2.set_ylabel('Branch Success Rate (%)', fontsize=11, fontweight='bold')
     ax2.set_title('Project Success Rate', fontsize=12, fontweight='bold', pad=10)
     ax2.set_ylim(0, 100)
     ax2.grid(True, alpha=0.3, axis='y')
@@ -349,33 +350,33 @@ def create_multipanel_dashboard(df, output_file):
     ax3 = fig.add_subplot(gs[2, 0])
     colors = ['#27AE60' if c == 0 and d < 100 else '#E74C3C'
               for c, d in zip(df['canceled_rate'], df['avg_duration'])]
-    ax3.scatter(df['avg_duration'], df['Solved Issue (%)'], c=colors, s=150, alpha=0.7, edgecolors='black')
+    ax3.scatter(df['avg_duration'], df['Branch Success Rate (%)'], c=colors, s=150, alpha=0.7, edgecolors='black')
 
     # Trendline
-    z = np.polyfit(df['avg_duration'], df['Solved Issue (%)'], 1)
+    z = np.polyfit(df['avg_duration'], df['Branch Success Rate (%)'], 1)
     p = np.poly1d(z)
     x_trend = np.linspace(df['avg_duration'].min(), df['avg_duration'].max(), 100)
     ax3.plot(x_trend, p(x_trend), "k--", alpha=0.5, linewidth=2)
 
-    corr, _ = stats.pearsonr(df['avg_duration'], df['Solved Issue (%)'])
+    corr, _ = stats.pearsonr(df['avg_duration'], df['Branch Success Rate (%)'])
     ax3.set_xlabel('Avg Duration (s)', fontsize=10, fontweight='bold')
-    ax3.set_ylabel('Solved Issue (%)', fontsize=10, fontweight='bold')
+    ax3.set_ylabel('Branch Success Rate (%)', fontsize=10, fontweight='bold')
     ax3.set_title(f'Duration Correlation: {corr:.3f}', fontsize=11, fontweight='bold')
     ax3.grid(True, alpha=0.3)
 
     # Panel 4: Cancellation correlation scatter
     ax4 = fig.add_subplot(gs[2, 1])
-    ax4.scatter(df['canceled_rate'], df['Solved Issue (%)'], c=colors, s=150, alpha=0.7, edgecolors='black')
+    ax4.scatter(df['canceled_rate'], df['Branch Success Rate (%)'], c=colors, s=150, alpha=0.7, edgecolors='black')
 
     # Trendline
-    z = np.polyfit(df['canceled_rate'], df['Solved Issue (%)'], 1)
+    z = np.polyfit(df['canceled_rate'], df['Branch Success Rate (%)'], 1)
     p = np.poly1d(z)
     x_trend = np.linspace(df['canceled_rate'].min(), df['canceled_rate'].max(), 100)
     ax4.plot(x_trend, p(x_trend), "k--", alpha=0.5, linewidth=2)
 
-    corr, _ = stats.pearsonr(df['canceled_rate'], df['Solved Issue (%)'])
+    corr, _ = stats.pearsonr(df['canceled_rate'], df['Branch Success Rate (%)'])
     ax4.set_xlabel('Cancellation Rate (%)', fontsize=10, fontweight='bold')
-    ax4.set_ylabel('Solved Issue (%)', fontsize=10, fontweight='bold')
+    ax4.set_ylabel('Branch Success Rate (%)', fontsize=10, fontweight='bold')
     ax4.set_title(f'Cancellation Correlation: {corr:.3f}', fontsize=11, fontweight='bold')
     ax4.grid(True, alpha=0.3)
 
@@ -401,7 +402,7 @@ def create_colored_table(df, output_file):
             f"{row['job_canceled_rate']:.0f}%",
             f"{row['Total Merges']:.0f}",
             f"{row['Valid Merges']:.0f}",
-            f"{row['Solved Issue (%)']:.0f}%"
+            f"{row['Branch Success Rate (%)']:.0f}%"
         ])
 
     # Create figure
@@ -468,7 +469,7 @@ def create_colored_table(df, output_file):
 
             # Solved Issue % column
             elif j == 6:
-                solved = df.iloc[i]['Solved Issue (%)']
+                solved = df.iloc[i]['Branch Success Rate (%)']
                 if solved >= 50:
                     cell.set_facecolor((0.4, 0.8, 0.4))  # Green
                 elif solved > 0:
@@ -482,8 +483,8 @@ def create_colored_table(df, output_file):
             cell.set_text_props(fontsize=10)
 
     # Calculate correlations for title
-    corr_duration = df['avg_duration'].corr(df['Solved Issue (%)'])
-    corr_cancel = df['canceled_rate'].corr(df['Solved Issue (%)'])
+    corr_duration = df['avg_duration'].corr(df['Branch Success Rate (%)'])
+    corr_cancel = df['canceled_rate'].corr(df['Branch Success Rate (%)'])
 
     plt.title(
         f'Infrastructure vs Success - Color-Coded Metrics Table\n'
@@ -518,61 +519,63 @@ def create_scatter_plots_only(df, output_file):
 
     # Create figure with 2 subplots
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
-    fig.suptitle('Infrastructure Problems vs Project Success - Correlation Analysis',
-                 fontsize=15, fontweight='bold', y=0.98)
+    n_projects = len(df)
+    fig.suptitle(f'Infrastructure Problems vs Project Success - Correlation Analysis\n'
+                 f'Sample Size: n={n_projects} projects | Note: Small sample size limits statistical power',
+                 fontsize=14, fontweight='bold', y=0.96)
 
     # Left: Duration scatter
     for tier, color in [('Good', '#27AE60'), ('Moderate', '#F39C12'), ('Poor', '#E74C3C')]:
         tier_data = df[df['tier'] == tier]
-        ax1.scatter(tier_data['avg_duration'], tier_data['Solved Issue (%)'],
+        ax1.scatter(tier_data['avg_duration'], tier_data['Branch Success Rate (%)'],
                    c=color, s=200, alpha=0.7, edgecolors='black', linewidth=1.5,
                    label=f'{tier} Infrastructure', zorder=3)
 
     # Trendline
-    z = np.polyfit(df['avg_duration'], df['Solved Issue (%)'], 1)
+    z = np.polyfit(df['avg_duration'], df['Branch Success Rate (%)'], 1)
     p = np.poly1d(z)
     x_trend = np.linspace(df['avg_duration'].min(), df['avg_duration'].max(), 100)
     ax1.plot(x_trend, p(x_trend), "k--", alpha=0.5, linewidth=2, zorder=2)
 
-    corr1, _ = stats.pearsonr(df['avg_duration'], df['Solved Issue (%)'])
+    corr1, _ = stats.pearsonr(df['avg_duration'], df['Branch Success Rate (%)'])
     r_squared1 = corr1 ** 2
 
     ax1.set_xlabel('Average Pipeline Duration (seconds)', fontsize=12, fontweight='bold')
-    ax1.set_ylabel('Solved Issue (%)', fontsize=12, fontweight='bold')
+    ax1.set_ylabel('Branch Success Rate (%)', fontsize=12, fontweight='bold')
     ax1.set_title(f'Duration vs Success\nCorrelation: {corr1:.3f} | R²: {r_squared1:.3f}',
                   fontsize=13, fontweight='bold', pad=10)
     ax1.grid(True, alpha=0.3)
     ax1.legend(loc='upper right', fontsize=10)
 
     for _, row in df.iterrows():
-        ax1.annotate(row['Project'], (row['avg_duration'], row['Solved Issue (%)']),
+        ax1.annotate(row['Project'], (row['avg_duration'], row['Branch Success Rate (%)']),
                     xytext=(5, 5), textcoords='offset points', fontsize=9,
                     fontweight='bold', alpha=0.7)
 
     # Right: Cancellation scatter
     for tier, color in [('Good', '#27AE60'), ('Moderate', '#F39C12'), ('Poor', '#E74C3C')]:
         tier_data = df[df['tier'] == tier]
-        ax2.scatter(tier_data['canceled_rate'], tier_data['Solved Issue (%)'],
+        ax2.scatter(tier_data['canceled_rate'], tier_data['Branch Success Rate (%)'],
                    c=color, s=200, alpha=0.7, edgecolors='black', linewidth=1.5,
                    label=f'{tier} Infrastructure', zorder=3)
 
-    z = np.polyfit(df['canceled_rate'], df['Solved Issue (%)'], 1)
+    z = np.polyfit(df['canceled_rate'], df['Branch Success Rate (%)'], 1)
     p = np.poly1d(z)
     x_trend = np.linspace(df['canceled_rate'].min(), df['canceled_rate'].max(), 100)
     ax2.plot(x_trend, p(x_trend), "k--", alpha=0.5, linewidth=2, zorder=2)
 
-    corr2, _ = stats.pearsonr(df['canceled_rate'], df['Solved Issue (%)'])
+    corr2, _ = stats.pearsonr(df['canceled_rate'], df['Branch Success Rate (%)'])
     r_squared2 = corr2 ** 2
 
     ax2.set_xlabel('Pipeline Cancellation Rate (%)', fontsize=12, fontweight='bold')
-    ax2.set_ylabel('Solved Issue (%)', fontsize=12, fontweight='bold')
+    ax2.set_ylabel('Branch Success Rate (%)', fontsize=12, fontweight='bold')
     ax2.set_title(f'Cancellation vs Success\nCorrelation: {corr2:.3f} | R²: {r_squared2:.3f}',
                   fontsize=13, fontweight='bold', pad=10)
     ax2.grid(True, alpha=0.3)
     ax2.legend(loc='upper right', fontsize=10)
 
     for _, row in df.iterrows():
-        ax2.annotate(row['Project'], (row['canceled_rate'], row['Solved Issue (%)']),
+        ax2.annotate(row['Project'], (row['canceled_rate'], row['Branch Success Rate (%)']),
                     xytext=(5, 5), textcoords='offset points', fontsize=9,
                     fontweight='bold', alpha=0.7)
 
@@ -612,7 +615,7 @@ def create_summary_table_only(df, output_file):
             f"{row['avg_duration']:.0f}s",
             f"{row['canceled_rate']:.0f}%",
             f"{row['Valid Merges']:.0f}/{row['Total Merges']:.0f}",
-            f"{row['Solved Issue (%)']:.0f}%",
+            f"{row['Branch Success Rate (%)']:.0f}%",
             row['tier']
         ])
 
@@ -650,8 +653,8 @@ def create_summary_table_only(df, output_file):
             cell.set_text_props(fontsize=10)
 
     # Calculate correlations for title
-    corr_duration = df['avg_duration'].corr(df['Solved Issue (%)'])
-    corr_cancel = df['canceled_rate'].corr(df['Solved Issue (%)'])
+    corr_duration = df['avg_duration'].corr(df['Branch Success Rate (%)'])
+    corr_cancel = df['canceled_rate'].corr(df['Branch Success Rate (%)'])
 
     plt.title(
         f'Infrastructure Metrics and Project Success Summary\n'
@@ -695,28 +698,28 @@ def create_combined_visualization(df, output_file):
     ax1 = fig.add_subplot(gs[0, 0])
     for tier, color in [('Good', '#27AE60'), ('Moderate', '#F39C12'), ('Poor', '#E74C3C')]:
         tier_data = df[df['tier'] == tier]
-        ax1.scatter(tier_data['avg_duration'], tier_data['Solved Issue (%)'],
+        ax1.scatter(tier_data['avg_duration'], tier_data['Branch Success Rate (%)'],
                    c=color, s=200, alpha=0.7, edgecolors='black', linewidth=1.5,
                    label=f'{tier} Infrastructure', zorder=3)
 
     # Trendline
-    z = np.polyfit(df['avg_duration'], df['Solved Issue (%)'], 1)
+    z = np.polyfit(df['avg_duration'], df['Branch Success Rate (%)'], 1)
     p = np.poly1d(z)
     x_trend = np.linspace(df['avg_duration'].min(), df['avg_duration'].max(), 100)
     ax1.plot(x_trend, p(x_trend), "k--", alpha=0.5, linewidth=2, zorder=2)
 
-    corr1, _ = stats.pearsonr(df['avg_duration'], df['Solved Issue (%)'])
+    corr1, _ = stats.pearsonr(df['avg_duration'], df['Branch Success Rate (%)'])
     r_squared1 = corr1 ** 2
 
     ax1.set_xlabel('Average Pipeline Duration (seconds)', fontsize=12, fontweight='bold')
-    ax1.set_ylabel('Solved Issue (%)', fontsize=12, fontweight='bold')
+    ax1.set_ylabel('Branch Success Rate (%)', fontsize=12, fontweight='bold')
     ax1.set_title(f'Duration vs Success\nCorrelation: {corr1:.3f} | R²: {r_squared1:.3f}',
                   fontsize=13, fontweight='bold', pad=10)
     ax1.grid(True, alpha=0.3)
     ax1.legend(loc='upper right', fontsize=10)
 
     for _, row in df.iterrows():
-        ax1.annotate(row['Project'], (row['avg_duration'], row['Solved Issue (%)']),
+        ax1.annotate(row['Project'], (row['avg_duration'], row['Branch Success Rate (%)']),
                     xytext=(5, 5), textcoords='offset points', fontsize=9,
                     fontweight='bold', alpha=0.7)
 
@@ -724,27 +727,27 @@ def create_combined_visualization(df, output_file):
     ax2 = fig.add_subplot(gs[0, 1])
     for tier, color in [('Good', '#27AE60'), ('Moderate', '#F39C12'), ('Poor', '#E74C3C')]:
         tier_data = df[df['tier'] == tier]
-        ax2.scatter(tier_data['canceled_rate'], tier_data['Solved Issue (%)'],
+        ax2.scatter(tier_data['canceled_rate'], tier_data['Branch Success Rate (%)'],
                    c=color, s=200, alpha=0.7, edgecolors='black', linewidth=1.5,
                    label=f'{tier} Infrastructure', zorder=3)
 
-    z = np.polyfit(df['canceled_rate'], df['Solved Issue (%)'], 1)
+    z = np.polyfit(df['canceled_rate'], df['Branch Success Rate (%)'], 1)
     p = np.poly1d(z)
     x_trend = np.linspace(df['canceled_rate'].min(), df['canceled_rate'].max(), 100)
     ax2.plot(x_trend, p(x_trend), "k--", alpha=0.5, linewidth=2, zorder=2)
 
-    corr2, _ = stats.pearsonr(df['canceled_rate'], df['Solved Issue (%)'])
+    corr2, _ = stats.pearsonr(df['canceled_rate'], df['Branch Success Rate (%)'])
     r_squared2 = corr2 ** 2
 
     ax2.set_xlabel('Pipeline Cancellation Rate (%)', fontsize=12, fontweight='bold')
-    ax2.set_ylabel('Solved Issue (%)', fontsize=12, fontweight='bold')
+    ax2.set_ylabel('Branch Success Rate (%)', fontsize=12, fontweight='bold')
     ax2.set_title(f'Cancellation vs Success\nCorrelation: {corr2:.3f} | R²: {r_squared2:.3f}',
                   fontsize=13, fontweight='bold', pad=10)
     ax2.grid(True, alpha=0.3)
     ax2.legend(loc='upper right', fontsize=10)
 
     for _, row in df.iterrows():
-        ax2.annotate(row['Project'], (row['canceled_rate'], row['Solved Issue (%)']),
+        ax2.annotate(row['Project'], (row['canceled_rate'], row['Branch Success Rate (%)']),
                     xytext=(5, 5), textcoords='offset points', fontsize=9,
                     fontweight='bold', alpha=0.7)
 
@@ -761,7 +764,7 @@ def create_combined_visualization(df, output_file):
             f"{row['avg_duration']:.0f}s",
             f"{row['canceled_rate']:.0f}%",
             f"{row['Valid Merges']:.0f}/{row['Total Merges']:.0f}",
-            f"{row['Solved Issue (%)']:.0f}%",
+            f"{row['Branch Success Rate (%)']:.0f}%",
             row['tier']
         ])
 
@@ -822,11 +825,22 @@ def main():
 
     print(f"Analyzing {len(projects)} projects...\n")
 
+    # Determine project type from first project for letter-based structure
+    first_project_name = projects[0][1] if projects else None
+    if not first_project_name:
+        print("[ERROR] No projects found")
+        return 1
+
+    project_type = get_project_letter(first_project_name)
+
     # Analyze infrastructure for each project
     infrastructure_stats = []
 
     for project_id, project_name in projects:
-        project_label = project_name.replace('ba_project_', '').replace('_battleship', '').upper()
+        # Extract project label for display (e.g., "A01", "B05")
+        letter = get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_label = f"{letter.upper()}{number}"
 
         print(f"Analyzing infrastructure for {project_label}...", end=' ')
 
@@ -864,9 +878,9 @@ def main():
     # Create DataFrame
     infra_df = pd.DataFrame(infrastructure_stats)
 
-    # Load merge quality statistics
+    # Load merge quality statistics (letter-based structure)
     base_dir = Path(__file__).parent.parent.parent.parent
-    merge_quality_file = base_dir / 'visualizations/summary/quality_analysis/merge_quality_statistics.csv'
+    merge_quality_file = base_dir / 'visualizations' / project_type / 'summary' / 'quality_analysis' / 'merge_quality_statistics.csv'
     merge_df = load_merge_quality_stats(merge_quality_file)
 
     # Combine datasets
@@ -879,8 +893,8 @@ def main():
 
     print()
 
-    # Create output directory
-    output_dir = base_dir / 'visualizations/summary/quality_analysis'
+    # Create output directory (letter-based structure)
+    output_dir = base_dir / 'visualizations' / project_type / 'summary' / 'quality_analysis'
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Save combined statistics
@@ -966,7 +980,7 @@ def main():
 
             print()
             print("Correlation with Solved Issue Rate:")
-            solved_corr = corr_matrix['Solved Issue (%)'].drop('Solved Issue (%)')
+            solved_corr = corr_matrix['Branch Success Rate (%)'].drop('Branch Success Rate (%)')
             for metric, corr_value in solved_corr.items():
                 direction = "↑" if corr_value > 0 else "↓"
                 strength = "STRONG" if abs(corr_value) > 0.7 else "MODERATE" if abs(corr_value) > 0.4 else "WEAK"

@@ -2,14 +2,17 @@
 Extract All Coverage - Extract coverage data from all projects using existing pipeline data
 
 Reads pipelines.json files and extracts coverage data from JaCoCo artifacts
+Supports letter-based project structure (a, b, c, etc.)
 """
 
 import sys
 import os
+import argparse
 sys.path.insert(0, os.path.dirname(__file__))
 
 from dotenv import load_dotenv
-from core import GitLabClient, load_project_config, FileManager
+from core import GitLabClient, FileManager
+from core.config_loader import load_project_types, get_projects_by_letter, get_project_letter, get_project_number
 from fetchers import CoverageExtractor
 import json
 from datetime import datetime
@@ -18,20 +21,32 @@ from datetime import datetime
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 
-def extract_coverage_from_pipelines(project_id: str, project_name: str, client: GitLabClient):
-    """Extract coverage data from pipeline data"""
+def extract_coverage_from_pipelines(project_id: str, project_name: str, client: GitLabClient, project_type: str = None):
+    """Extract coverage data from pipeline data using letter-based structure"""
 
     print(f"\n{'='*80}")
     print(f"EXTRACTING COVERAGE: {project_name}")
     print(f"{'='*80}")
 
-    # Load pipelines from saved data
-    data_dir = os.path.join('..', 'data_raw', project_name)
+    # Use letter-based structure
+    letter = project_type if project_type else get_project_letter(project_name)
+    number = get_project_number(project_name)
+    proj_id = f"{letter}{number}"
+
+    # Load pipelines from saved data (new letter-based structure)
+    data_dir = os.path.join('..', 'data_raw', letter, proj_id)
     pipelines_file = os.path.join(data_dir, 'pipelines.json')
 
+    # Fall back to old structure if new doesn't exist
     if not os.path.exists(pipelines_file):
-        print(f"  [SKIP] Pipelines file not found")
-        return None
+        old_data_dir = os.path.join('..', 'data_raw', project_name)
+        old_pipelines_file = os.path.join(old_data_dir, 'pipelines.json')
+        if os.path.exists(old_pipelines_file):
+            data_dir = old_data_dir
+            pipelines_file = old_pipelines_file
+        else:
+            print(f"  [SKIP] Pipelines file not found")
+            return None
 
     with open(pipelines_file, 'r', encoding='utf-8') as f:
         pipelines = json.load(f)
@@ -76,7 +91,7 @@ def extract_coverage_from_pipelines(project_id: str, project_name: str, client: 
     for artifact in jacoco_artifacts:
         try:
             result = coverage_extractor._download_and_parse_coverage(
-                project_id,
+                project_name,  # Use full GitLab path, not short "b01" format
                 artifact
             )
 
@@ -131,9 +146,22 @@ def extract_coverage_from_pipelines(project_id: str, project_name: str, client: 
 def main():
     """Extract coverage from all projects"""
 
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description='Extract coverage data from pipelines')
+    parser.add_argument(
+        '--project-type',
+        type=str,
+        default='a',
+        help='Project type letter (a, b, c, etc.). Default: a'
+    )
+    args = parser.parse_args()
+
+    project_type = args.project_type
+
     print("="*80)
     print("COVERAGE EXTRACTION - ALL PROJECTS")
     print("="*80)
+    print(f"Project Type: {project_type}")
 
     # Create client
     gitlab_url = os.getenv('GITLAB_URL', 'https://gitlab.nibbler.fh-swf.de/')
@@ -145,11 +173,12 @@ def main():
 
     client = GitLabClient(gitlab_url, gitlab_token)
 
-    # Load projects (uses default path '../../config_projects.json' relative to core/)
-    projects = load_project_config()
+    # Load projects for specified type
+    projects_data = get_projects_by_letter(project_type)
+    projects = [(f"{letter}{num}", gitlab_name) for letter, num, gitlab_name in projects_data]
 
     if not projects:
-        print("[ERROR] No projects found in config")
+        print(f"[ERROR] No projects found for type '{project_type}'")
         return 1
 
     print(f"\nProcessing {len(projects)} projects...\n")
@@ -158,7 +187,7 @@ def main():
 
     for project_id, project_name in projects:
         try:
-            result = extract_coverage_from_pipelines(project_id, project_name, client)
+            result = extract_coverage_from_pipelines(project_id, project_name, client, project_type)
             if result:
                 all_results.append(result)
         except Exception as e:
@@ -200,11 +229,14 @@ def main():
             print(f"  Above 80%: {len([c for c in coverages if c >= 80])}")
             print(f"  Above 90%: {len([c for c in coverages if c >= 90])}")
 
-    # Save summary
-    summary_file = os.path.join('..', 'data_raw', 'coverage_extraction_summary.json')
+    # Save summary in metadata folder
+    metadata_dir = os.path.join('..', 'data_raw', '_metadata')
+    os.makedirs(metadata_dir, exist_ok=True)
+    summary_file = os.path.join(metadata_dir, f'coverage_extraction_summary_type_{project_type}.json')
     with open(summary_file, 'w', encoding='utf-8') as f:
         json.dump({
             'extraction_date': datetime.now().isoformat(),
+            'project_type': project_type,
             'total_projects': len(all_results),
             'total_artifacts': total_artifacts,
             'successful_extractions': total_successful,

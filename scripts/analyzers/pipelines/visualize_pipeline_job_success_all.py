@@ -28,6 +28,8 @@ from collections import defaultdict
 import pandas as pd
 import numpy as np
 from core import load_project_config
+from core.path_helpers import get_data_dir
+from core.config_loader import get_project_letter, get_project_number
 
 # Set style
 sns.set_style("whitegrid")
@@ -44,18 +46,14 @@ def get_job_success_rates(project_name, data_base_dir=None):
 
     Args:
         project_name: Name of the project directory
-        data_base_dir: Base directory containing project data
+        data_base_dir: Base directory containing project data (deprecated, uses path_helpers)
 
     Returns:
         Dict mapping issue labels to pipeline statistics
     """
-    if data_base_dir is None:
-        from pathlib import Path
-        base_dir = Path(__file__).parent.parent.parent.parent
-        data_base_dir = str(base_dir / 'data_raw')
-
-    data_dir = os.path.join(data_base_dir, project_name)
-    pipelines_file = os.path.join(data_dir, 'pipelines.json')
+    # Use path helper for letter-based structure
+    data_dir = get_data_dir(project_name)
+    pipelines_file = data_dir / 'pipelines.json'
 
     if not os.path.exists(pipelines_file):
         return {}
@@ -329,19 +327,31 @@ def main():
 
     print(f"Verarbeite {len(projects)} Projekte...\n")
 
-    # Create output directory
-    output_dir = os.path.join('..', '..', 'visualizations', 'pipeline_job_success_all')
-    os.makedirs(output_dir, exist_ok=True)
-    summary_dir = os.path.join('..', '..', 'visualizations', 'summary', 'pipelines')
-    os.makedirs(summary_dir, exist_ok=True)
+    # Determine project type from first project for letter-based structure
+    first_project_name = projects[0][1] if projects else None
+    if not first_project_name:
+        print("[ERROR] Keine Projekte gefunden")
+        return 1
+
+    project_type = get_project_letter(first_project_name)
+
+    # Create output directories (letter-based structure)
+    from pathlib import Path
+    base_dir = Path(__file__).parent.parent.parent.parent
+    output_dir = base_dir / 'visualizations' / project_type / 'pipeline_job_success_all'
+    output_dir.mkdir(parents=True, exist_ok=True)
+    summary_dir = base_dir / 'visualizations' / project_type / 'summary' / 'pipelines'
+    summary_dir.mkdir(parents=True, exist_ok=True)
 
     # Collect data for all projects
     all_project_data = {}
     total_created = 0
 
     for project_id, project_name in projects:
-        # Extract clean project label
-        project_label = project_name.replace('ba_project_', '').replace('_battleship', '').upper()
+        # Extract project label (e.g., "A01", "B05")
+        letter = get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_label = f"{letter.upper()}{number}"
 
         print(f"Lade {project_label}...", end=' ')
 
@@ -359,7 +369,7 @@ def main():
             all_project_data[project_label] = job_stats
 
             # Create visualization
-            output_file = os.path.join(output_dir, f'{project_label.lower()}_job_success_all.png')
+            output_file = output_dir / f'{project_label.lower()}_job_success_all.png'
             create_job_success_chart(project_label, job_stats, output_file)
             total_created += 1
         else:
@@ -372,7 +382,7 @@ def main():
     print()
 
     # Generate statistics table
-    stats_file = os.path.join(summary_dir, 'pipeline_job_success_all_statistics.csv')
+    stats_file = summary_dir / 'pipeline_job_success_all_statistics.csv'
     create_statistics_table(all_project_data, stats_file)
 
     print()

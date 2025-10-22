@@ -2,12 +2,18 @@
 File Manager - Save and load JSON files
 
 Handles all file I/O operations for the project
+Supports letter-based project structure (a, b, c, etc.)
 """
 
 import json
 import os
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
+
+try:
+    from scripts.core.config_loader import get_project_letter, get_project_number
+except ModuleNotFoundError:
+    from .config_loader import get_project_letter, get_project_number
 
 
 class FileManager:
@@ -88,23 +94,35 @@ class FileManager:
     @staticmethod
     def save_project_data(
         project_data: Dict[str, Any],
-        output_base_dir: str
+        output_base_dir: str,
+        project_type: Optional[str] = None
     ) -> List[str]:
         """
         Save complete project data to organized folder structure
 
+        Uses letter-based structure: output_base_dir/letter/project_id/
+
         Args:
             project_data: Complete project data dictionary
             output_base_dir: Base output directory
+            project_type: Optional project type override (e.g., 'a', 'b')
 
         Returns:
             List of saved file paths
 
         Example:
             files = FileManager.save_project_data(data, 'data_raw')
+            # Saves to: data_raw/a/a01/ (for project_name='ba_project_a01_battleship')
         """
         project_name = project_data['project_name']
-        project_dir = os.path.join(output_base_dir, project_name)
+
+        # Extract letter and number from project name
+        letter = project_type if project_type else get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_id = f"{letter}{number}"
+
+        # Create letter-based directory structure: data_raw/a/a01/
+        project_dir = os.path.join(output_base_dir, letter, project_id)
         FileManager.ensure_directory(project_dir)
 
         files_saved = []
@@ -142,14 +160,18 @@ class FileManager:
     @staticmethod
     def load_project_data(
         project_name: str,
-        data_dir: str = '../data_raw'
+        data_dir: str = '../data_raw',
+        project_type: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Load complete project data from folder
 
+        Supports both old flat structure and new letter-based structure
+
         Args:
-            project_name: Project name
+            project_name: Project name (e.g., 'ba_project_a01_battleship' or 'a01')
             data_dir: Base data directory
+            project_type: Optional project type override (e.g., 'a', 'b')
 
         Returns:
             Dictionary with all project data
@@ -159,11 +181,27 @@ class FileManager:
 
         Example:
             data = FileManager.load_project_data('ba_project_a01_battleship')
+            # Tries: data_raw/a/a01/ first, then data_raw/ba_project_a01_battleship/
         """
-        project_dir = os.path.join(data_dir, project_name)
+        # Try new letter-based structure first
+        letter = project_type if project_type else get_project_letter(project_name)
+        number = get_project_number(project_name)
+        project_id = f"{letter}{number}"
 
-        if not os.path.exists(project_dir):
-            raise FileNotFoundError(f"Project folder not found: {project_dir}")
+        new_project_dir = os.path.join(data_dir, letter, project_id)
+        old_project_dir = os.path.join(data_dir, project_name)
+
+        # Try new structure first, fall back to old structure
+        if os.path.exists(new_project_dir):
+            project_dir = new_project_dir
+        elif os.path.exists(old_project_dir):
+            project_dir = old_project_dir
+        else:
+            raise FileNotFoundError(
+                f"Project folder not found in either location:\n"
+                f"  New: {new_project_dir}\n"
+                f"  Old: {old_project_dir}"
+            )
 
         data = {
             'project_name': project_name,

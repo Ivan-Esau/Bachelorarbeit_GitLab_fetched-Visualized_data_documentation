@@ -1,0 +1,11 @@
+mr_iid,title,source_branch,merged_at,pipeline_id,compile_status,test_status,is_valid,project
+1,[US-01] Setting ships somewhere on the board,feature/issue-1-us-01-setting-ships-somewhere-,2025-10-14 23:15:44.623000+00:00,7191,success,success,True,B01
+3,"[US-03] Ship damage, announcing sunk, and finishing",feature/issue-3-us-03-ship-damage-announcing-s,2025-10-15 01:31:16.165000+00:00,7260,success,success,True,B01
+4,[US-04] Playing alone against the computer,feature/issue-4-us-04-playing-alone-against-th,2025-10-15 02:51:32.133000+00:00,7297,success,success,True,B01
+1,[US-01] Setting ships somewhere on the board,feature/issue-1-us-01-setting-ships-somewhere-,2025-10-15 04:31:08.385000+00:00,7348,success,success,True,B02
+5,[US-05] Saving and restoring the game,feature/issue-5-us-05-saving-and-restoring-the,2025-10-15 08:52:25.459000+00:00,7460,success,success,True,B02
+1,[US-01] Setting ships somewhere on the board,feature/issue-1-us-01-setting-ships-somewhere-,2025-10-15 19:23:03.299000+00:00,7639,success,success,True,B04
+3,"[US-03] Ship damage, announcing sunk, and finishing",feature/issue-3-us-03-ship-damage-announcing-s,2025-10-15 21:37:37.135000+00:00,7731,success,success,True,B04
+4,[US-04] Playing alone against the computer,feature/issue-4-us-04-playing-alone-against-th,2025-10-15 22:08:48.173000+00:00,7754,success,success,True,B04
+5,[US-05] Saving and restoring the game,feature/issue-5-us-05-saving-and-restoring-the,2025-10-15 23:41:59.761000+00:00,7814,success,success,True,B04
+1,Implement US-01: Ship Placement System,feature/issue-1-us-01-setting-ships-somewhere-,2025-10-21 13:31:26.917000+00:00,9406,success,success,True,B10

@@ -1,0 +1,6 @@
+Project,Branch,Final Coverage (%),Branch Coverage (%),Lines Covered,Lines Total,Complexity,Num Pipelines,Avg Coverage (%),First Coverage (%),Coverage Change (%)
+B01,Issue #1,29.62,41.98,109,368,165,40,7.32,21.05,8.57
+B01,Issue #2,19.82,25.23,109,550,242,27,20.79,29.62,-9.80
+B01,Issue #3,37.87,52.55,203,536,239,23,27.51,29.62,8.25
+B01,Issue #4,39.20,53.73,312,796,337,28,28.69,37.87,1.33
+B01,Issue #5,35.82,52.11,312,871,370,10,35.42,39.20,-3.38

@@ -1,0 +1,176 @@
+[
+  {
+    "name": "feature/issue-1-us-01-setting-ships-somewhere-",
+    "commit": {
+      "id": "e070497d8378e1c9140ae11db6a7b19da99bb0ee",
+      "short_id": "e070497d",
+      "created_at": "2025-10-20T11:19:16.000+00:00",
+      "parent_ids": [
+        "3c3b86c17f1273ec781e6bc55bbe2e0d8206777e"
+      ],
+      "title": "docs: add Review Agent report v2 for Issue #1 pipeline monitoring",
+      "message": "docs: add Review Agent report v2 for Issue #1 pipeline monitoring",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-20T11:19:16.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-20T11:19:16.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/commit/e070497d8378e1c9140ae11db6a7b19da99bb0ee"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/tree/feature/issue-1-us-01-setting-ships-somewhere-"
+  },
+  {
+    "name": "feature/issue-2-us-02-alternating-shooting-wit",
+    "commit": {
+      "id": "e7fc656713f40317d79eea8d77d31839810a0c08",
+      "short_id": "e7fc6567",
+      "created_at": "2025-10-20T12:15:31.000+00:00",
+      "parent_ids": [
+        "32e5d9ddc3cfb252934ea2d5515ba4c723c90176"
+      ],
+      "title": "docs: add Testing Agent v3 report with pipeline monitoring analysis",
+      "message": "docs: add Testing Agent v3 report with pipeline monitoring analysis",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-20T12:15:31.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-20T12:15:31.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/commit/e7fc656713f40317d79eea8d77d31839810a0c08"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/tree/feature/issue-2-us-02-alternating-shooting-wit"
+  },
+  {
+    "name": "feature/issue-3-us-03-ship-damage-announcing-s",
+    "commit": {
+      "id": "ea8e0fda4b70d8ac5c1f7757e9e750995d646c7e",
+      "short_id": "ea8e0fda",
+      "created_at": "2025-10-20T13:01:32.000+00:00",
+      "parent_ids": [
+        "63ccfce85bd33613dc85dbf94f7fa01e7f7edab2"
+      ],
+      "title": "fix: Use FINISHED state with stored winner reference to avoid infinite loops",
+      "message": "fix: Use FINISHED state with stored winner reference to avoid infinite loops",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-20T13:01:32.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-20T13:01:32.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/commit/ea8e0fda4b70d8ac5c1f7757e9e750995d646c7e"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/tree/feature/issue-3-us-03-ship-damage-announcing-s"
+  },
+  {
+    "name": "feature/issue-4-us-04-playing-alone-against-th",
+    "commit": {
+      "id": "8a35e22fb9508980898084732ef4b8dde1f9737d",
+      "short_id": "8a35e22f",
+      "created_at": "2025-10-20T14:25:33.000+00:00",
+      "parent_ids": [
+        "14a7fc8a56cac0f9b0cdaf147ab6fb47630158a0"
+      ],
+      "title": "fix: update Player constructor calls in GameIntegrationTest",
+      "message": "fix: update Player constructor calls in GameIntegrationTest",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-20T14:25:33.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-20T14:25:33.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/commit/8a35e22fb9508980898084732ef4b8dde1f9737d"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/tree/feature/issue-4-us-04-playing-alone-against-th"
+  },
+  {
+    "name": "feature/issue-5-us-05-saving-and-restoring-the",
+    "commit": {
+      "id": "41a16313db5ea3ef101e15727eee828cccdf0676",
+      "short_id": "41a16313",
+      "created_at": "2025-10-20T15:14:04.000+00:00",
+      "parent_ids": [
+        "96afaae4bf8dd772fb51b910470cfaeb675ff297"
+      ],
+      "title": "docs: add Review Agent report v2 for issue #5 with comprehensive validation",
+      "message": "docs: add Review Agent report v2 for issue #5 with comprehensive validation",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-20T15:14:04.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-20T15:14:04.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/commit/41a16313db5ea3ef101e15727eee828cccdf0676"
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/tree/feature/issue-5-us-05-saving-and-restoring-the"
+  },
+  {
+    "name": "master",
+    "commit": {
+      "id": "8ca02997e9d1f45c62356ba83979e810846082c6",
+      "short_id": "8ca02997",
+      "created_at": "2025-10-20T10:18:05.000+00:00",
+      "parent_ids": [
+        "b2a5008a8756f10f022115a3cc2f3fb54db4ae13"
+      ],
+      "title": "docs: add Planning Agent report for issue #211 (v1)",
+      "message": "docs: add Planning Agent report for issue #211 (v1)",
+      "author_name": "Ivan Esau",
+      "author_email": "esau.ivan@fh-swf.de",
+      "authored_date": "2025-10-20T10:18:05.000+00:00",
+      "committer_name": "Ivan Esau",
+      "committer_email": "esau.ivan@fh-swf.de",
+      "committed_date": "2025-10-20T10:18:05.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/commit/8ca02997e9d1f45c62356ba83979e810846082c6"
+    },
+    "merged": false,
+    "protected": true,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": true,
+    "web_url": "https://gitlab.nibbler.fh-swf.de/simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship/-/tree/master"
+  }
+]

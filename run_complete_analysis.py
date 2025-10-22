@@ -1,6 +1,6 @@
 """
 Master Script - Complete Analysis Pipeline
-Runs: Fetch → Analyze → Visualize
+Runs: Fetch → Extract Coverage → Analyze → Compare
 
 Run this script to perform complete data collection and analysis
 """
@@ -11,24 +11,26 @@ import os
 from pathlib import Path
 
 
-def run_script(script_path: str, description: str) -> bool:
+def run_script(script_path: str, args: list, description: str) -> bool:
     """
-    Run a Python script and report success/failure
+    Run a Python script with arguments and report success/failure
 
     Args:
         script_path: Path to script
+        args: List of command-line arguments
         description: What the script does
 
     Returns:
         True if successful, False otherwise
     """
-    print("\n" + "="*80)
+    print("\n" + "="*100)
     print(f"STEP: {description}")
-    print("="*80)
+    print("="*100)
 
     try:
+        cmd = [sys.executable, script_path] + args
         result = subprocess.run(
-            [sys.executable, script_path],
+            cmd,
             check=True,
             capture_output=True,
             text=True
@@ -42,11 +44,11 @@ def run_script(script_path: str, description: str) -> bool:
             print("Warnings/Info:")
             print(result.stderr)
 
-        print(f"\n✓ SUCCESS: {description}")
+        print(f"\n[OK] SUCCESS: {description}")
         return True
 
     except subprocess.CalledProcessError as e:
-        print(f"\n✗ FAILED: {description}")
+        print(f"\n[ERROR] FAILED: {description}")
         print("\nError output:")
         print(e.stderr)
         print("\nStdout:")
@@ -57,13 +59,34 @@ def run_script(script_path: str, description: str) -> bool:
 def main():
     """Run complete analysis pipeline"""
 
-    print("="*80)
+    print("="*100)
     print("GITLAB DATA ANALYSIS - COMPLETE PIPELINE")
-    print("="*80)
-    print("\nThis will:")
-    print("  1. Fetch raw data from GitLab (all projects)")
-    print("  2. Analyze and link the data (issues → MRs → pipelines)")
-    print("  3. Create visualizations (charts and tables)")
+    print("="*100)
+    print("\nThis pipeline will execute:")
+    print("  PHASE 1: Data Fetching")
+    print("    - Fetch all raw data from GitLab for Type A projects (10 projects)")
+    print("    - Fetch all raw data from GitLab for Type B projects (10 projects)")
+    print()
+    print("  PHASE 2: Coverage Extraction")
+    print("    - Extract JaCoCo coverage data from artifacts (Type A)")
+    print("    - Extract JaCoCo coverage data from artifacts (Type B)")
+    print()
+    print("  PHASE 3: Per-Project Analysis")
+    print("    - Branch lifecycle analysis (both types)")
+    print("    - Branch metrics heatmaps (both types)")
+    print("    - Pipeline duration analysis (both types)")
+    print("    - Pipeline job success analysis (both types)")
+    print("    - Pipeline success summary (both types)")
+    print("    - Coverage per branch visualization (both types)")
+    print()
+    print("  PHASE 4: Quality Analysis")
+    print("    - Merge quality analysis")
+    print("    - Runner correlation analysis")
+    print()
+    print("  PHASE 5: Type A vs Type B Comparisons")
+    print("    - Pipeline success comparison")
+    print("    - Merge success comparison")
+    print("    - Coverage per branch comparison")
     print()
 
     # Check if .env exists
@@ -75,62 +98,242 @@ def main():
         print("  GITLAB_TOKEN=your-token")
         return
 
-    response = input("Continue? This may take 10-30 minutes depending on data size. [y/N]: ")
+    response = input("Continue? This may take 30-60 minutes depending on data size. [y/N]: ")
     if response.lower() != 'y':
         print("Cancelled.")
         return
 
     print("\nStarting pipeline...\n")
 
-    # Step 1: Fetch raw data
-    success1 = run_script(
-        'scripts/fetch_raw_data.py',
-        'Fetching raw data from GitLab'
-    )
+    results = []
 
-    if not success1:
-        print("\n⚠ Data fetch failed. Cannot continue.")
-        return
+    # ========================================================================
+    # PHASE 1: DATA FETCHING
+    # ========================================================================
+    print("\n" + "#"*100)
+    print("# PHASE 1: DATA FETCHING")
+    print("#"*100)
 
-    # Step 2: Analyze data
-    success2 = run_script(
-        'scripts/analyze_raw_data.py',
-        'Analyzing and linking data'
-    )
+    results.append(run_script(
+        'scripts/fetch_modular.py',
+        ['--project-type', 'a'],
+        'Fetching Type A projects data from GitLab'
+    ))
 
-    if not success2:
-        print("\n⚠ Analysis failed. Cannot continue.")
-        return
+    results.append(run_script(
+        'scripts/fetch_modular.py',
+        ['--project-type', 'b'],
+        'Fetching Type B projects data from GitLab'
+    ))
 
-    # Step 3: Create visualizations
-    success3 = run_script(
-        'scripts/visualize_raw_data.py',
-        'Creating visualizations'
-    )
+    # ========================================================================
+    # PHASE 2: COVERAGE EXTRACTION
+    # ========================================================================
+    print("\n" + "#"*100)
+    print("# PHASE 2: COVERAGE EXTRACTION")
+    print("#"*100)
 
-    # Summary
-    print("\n" + "="*80)
+    results.append(run_script(
+        'scripts/extract_all_coverage.py',
+        ['--project-type', 'a'],
+        'Extracting coverage data from Type A artifacts'
+    ))
+
+    results.append(run_script(
+        'scripts/extract_all_coverage.py',
+        ['--project-type', 'b'],
+        'Extracting coverage data from Type B artifacts'
+    ))
+
+    # ========================================================================
+    # PHASE 3: PER-PROJECT ANALYSIS
+    # ========================================================================
+    print("\n" + "#"*100)
+    print("# PHASE 3: PER-PROJECT ANALYSIS")
+    print("#"*100)
+
+    # Branch Lifecycle
+    results.append(run_script(
+        'scripts/analyzers/branch_lifecycle/analyze_branch_lifecycle.py',
+        ['--project-type', 'a'],
+        'Analyzing branch lifecycle (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/branch_lifecycle/analyze_branch_lifecycle.py',
+        ['--project-type', 'b'],
+        'Analyzing branch lifecycle (Type B)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/branch_lifecycle/visualize_branch_duration_boxplot.py',
+        [],
+        'Creating branch duration boxplot (summary)'
+    ))
+
+    # Branch Metrics
+    results.append(run_script(
+        'scripts/analyzers/branch_metrics/visualize_branch_heatmap.py',
+        ['--project-type', 'a'],
+        'Creating branch metrics heatmaps (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/branch_metrics/visualize_branch_heatmap.py',
+        ['--project-type', 'b'],
+        'Creating branch metrics heatmaps (Type B)'
+    ))
+
+    # Pipeline Analysis
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_durations.py',
+        ['--project-type', 'a'],
+        'Analyzing pipeline durations (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_durations.py',
+        ['--project-type', 'b'],
+        'Analyzing pipeline durations (Type B)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_job_success.py',
+        ['--project-type', 'a'],
+        'Analyzing pipeline job success - failed only (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_job_success.py',
+        ['--project-type', 'b'],
+        'Analyzing pipeline job success - failed only (Type B)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_job_success_all.py',
+        ['--project-type', 'a'],
+        'Analyzing pipeline job success - all statuses (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_job_success_all.py',
+        ['--project-type', 'b'],
+        'Analyzing pipeline job success - all statuses (Type B)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_success_summary.py',
+        ['--project-type', 'a'],
+        'Creating pipeline success summary (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_success_summary.py',
+        ['--project-type', 'b'],
+        'Creating pipeline success summary (Type B)'
+    ))
+
+    # Coverage Analysis
+    results.append(run_script(
+        'scripts/analyzers/coverage/visualize_final_coverage_per_branch.py',
+        ['--project-type', 'a'],
+        'Visualizing coverage per branch (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/coverage/visualize_final_coverage_per_branch.py',
+        ['--project-type', 'b'],
+        'Visualizing coverage per branch (Type B)'
+    ))
+
+    # ========================================================================
+    # PHASE 4: QUALITY ANALYSIS
+    # ========================================================================
+    print("\n" + "#"*100)
+    print("# PHASE 4: QUALITY ANALYSIS")
+    print("#"*100)
+
+    results.append(run_script(
+        'scripts/analyzers/quality/analyze_merge_quality.py',
+        [],
+        'Analyzing merge quality (all projects)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/quality/analyze_runner_correlation.py',
+        [],
+        'Analyzing runner correlation (all projects)'
+    ))
+
+    # ========================================================================
+    # PHASE 5: TYPE A vs TYPE B COMPARISONS
+    # ========================================================================
+    print("\n" + "#"*100)
+    print("# PHASE 5: TYPE A vs TYPE B COMPARISONS")
+    print("#"*100)
+
+    results.append(run_script(
+        'scripts/analyzers/comparisons/compare_pipeline_success_a_vs_b.py',
+        [],
+        'Comparing pipeline success (Type A vs Type B)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/comparisons/compare_merge_success_a_vs_b.py',
+        [],
+        'Comparing merge success (Type A vs Type B)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/comparisons/compare_coverage_per_branch_a_vs_b.py',
+        [],
+        'Comparing coverage per branch (Type A vs Type B)'
+    ))
+
+    # ========================================================================
+    # SUMMARY
+    # ========================================================================
+    print("\n" + "="*100)
     print("PIPELINE COMPLETE")
-    print("="*80)
+    print("="*100)
 
-    if success1 and success2 and success3:
-        print("\n✓ All steps completed successfully!")
-        print("\nOutput locations:")
-        print("  - Raw data: data_raw/")
-        print("  - Analysis: data_raw/_analysis.json")
-        print("  - Charts: output_raw/")
-        print("\nGenerated charts:")
-        print("  - 00_summary_table.png")
-        print("  - 01_issue_counts.png")
-        print("  - 02_issue_completion.png")
-        print("  - 03_pipeline_statuses.png")
-        print("  - 04_mr_status_distribution.png")
-        print("  - 05_success_rate.png")
-        print("  - 06_pipeline_counts.png")
+    success_count = sum(results)
+    total_count = len(results)
+
+    if success_count == total_count:
+        print(f"\n[OK] All {total_count} steps completed successfully!")
     else:
-        print("\n⚠ Some steps failed. Check output above.")
+        print(f"\n[WARNING] {success_count}/{total_count} steps completed successfully.")
+        print(f"          {total_count - success_count} steps failed. Check output above.")
 
-    print("\n" + "="*80)
+    print("\nOutput locations:")
+    print("  - Raw data: data_raw/a/ and data_raw/b/")
+    print("  - Coverage data: data_raw/a/*/coverage.json and data_raw/b/*/coverage.json")
+    print("  - Visualizations: visualizations/")
+    print("    - visualizations/a/ (Type A per-project charts)")
+    print("    - visualizations/b/ (Type B per-project charts)")
+    print("    - visualizations/summary/ (Summary statistics)")
+    print("    - visualizations/comparisons/ (Type A vs Type B comparisons)")
+    print()
+    print("Generated visualizations:")
+    print("  Per-Project:")
+    print("    - Branch lifecycle duration charts")
+    print("    - Branch metrics heatmaps")
+    print("    - Pipeline duration analysis")
+    print("    - Pipeline job success charts")
+    print("    - Coverage per branch charts")
+    print()
+    print("  Summary:")
+    print("    - Branch duration boxplots")
+    print("    - Pipeline success summaries")
+    print("    - Quality analysis (merge quality, runner correlation)")
+    print()
+    print("  Comparisons:")
+    print("    - Pipeline success: Type A vs Type B")
+    print("    - Merge success: Type A vs Type B")
+    print("    - Coverage per branch: Type A vs Type B")
+
+    print("\n" + "="*100)
 
 
 if __name__ == '__main__':

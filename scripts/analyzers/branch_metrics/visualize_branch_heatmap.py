@@ -1,11 +1,13 @@
 """
 Branch-Level Heat Map Visualization
 
-Creates a comprehensive heat map table showing all branches across all projects
+Creates a comprehensive heat map table showing feature branches across all projects
 with color-coded metrics for quick comparison.
 
+Note: Master/main branches are EXCLUDED - they represent baseline templates, not feature work.
+
 Output:
-    - branch_heatmap_all_projects.png: Heat map table with all 60 branches
+    - branch_heatmap_all_projects.png: Heat map table with all feature branches
     - branch_heatmap_statistics.csv: Summary statistics
 
 Usage:
@@ -23,6 +25,8 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
+from core.path_helpers import get_data_dir
+from core.config_loader import get_project_letter, get_project_number
 
 
 def extract_issue_number(branch_name):
@@ -40,17 +44,22 @@ def extract_issue_number(branch_name):
 def aggregate_branch_data(project_name):
     """Aggregate all metrics for each branch in a project"""
 
-    base_dir = Path(__file__).parent.parent.parent.parent
-    project_dir = base_dir / 'data_raw' / project_name
+    # Use path helper for letter-based structure
+    project_dir = get_data_dir(project_name)
+
+    # Extract project label for display (e.g., "A01", "B05")
+    letter = get_project_letter(project_name)
+    number = get_project_number(project_name)
+    project_label = f"{letter.upper()}{number}"
 
     # Load all data files
-    with open(project_dir / 'branches.json') as f:
+    with open(project_dir / 'branches.json', encoding='utf-8') as f:
         branches = json.load(f)
-    with open(project_dir / 'pipelines.json') as f:
+    with open(project_dir / 'pipelines.json', encoding='utf-8') as f:
         pipelines = json.load(f)
-    with open(project_dir / 'coverage.json') as f:
+    with open(project_dir / 'coverage.json', encoding='utf-8') as f:
         coverage = json.load(f)
-    with open(project_dir / 'merge_requests.json') as f:
+    with open(project_dir / 'merge_requests.json', encoding='utf-8') as f:
         merge_requests = json.load(f)
 
     # Initialize branch data structure
@@ -103,6 +112,10 @@ def aggregate_branch_data(project_name):
     results = []
 
     for branch_name, data in branch_data.items():
+        # Skip master/main branches - they represent baseline template, not feature work
+        if branch_name.lower() in ['master', 'main']:
+            continue
+
         if len(data['pipelines']) == 0:
             continue  # Skip branches with no pipelines
 
@@ -178,7 +191,7 @@ def aggregate_branch_data(project_name):
             mr_state = 'no_mr'
 
         results.append({
-            'project': project_name.replace('ba_project_', '').replace('_battleship', '').upper(),
+            'project': project_label,
             'issue': data['issue_label'],
             'compile_rate': compile_rate,
             'test_rate': test_rate,
@@ -373,7 +386,7 @@ def create_project_heatmap(project_label, project_df, output_file):
     # Add title
     plt.title(
         f'Project {project_label}: Branch-Level Metrics Heat Map\n'
-        'Metrics: Green (>70%), Yellow (30-70%), Red (<30%) | MR: Green=Valid, Red=Invalid',
+        'Feature Branches Only (Master/Main Excluded) | Metrics: Green (>70%), Yellow (30-70%), Red (<30%) | MR: Green=Valid, Red=Invalid',
         fontsize=13,
         fontweight='bold',
         pad=20
@@ -503,23 +516,23 @@ def create_summary_table(df, output_file):
 
             cell.set_text_props(fontsize=10)
 
-    # Add title with feature vs master statistics
+    # Add title with feature branch statistics (master excluded)
     total_valid = sum(row[5] for row in summary_data)
     total_invalid = sum(row[6] for row in summary_data)
     total_all_merges = total_valid + total_invalid
     overall_invalid_rate = (total_invalid / total_all_merges * 100) if total_all_merges > 0 else 0
 
-    # Calculate overall feature vs master averages
-    feature_df = df[df['issue'] != 'Master']
-    master_df = df[df['issue'] == 'Master']
+    # Calculate overall feature branch statistics (master/main already excluded from df)
+    avg_coverage = df["final_coverage"].mean()
+    avg_compile = df["compile_rate"].mean()
+    avg_test = df["test_rate"].mean()
 
     plt.title(
-        f'Branch-Level Metrics Summary - All Projects\n'
-        f'Feature Branches (n={len(feature_df)}): Avg Coverage {feature_df["final_coverage"].mean():.1f}% | '
-        f'Master Branches (n={len(master_df)}): Avg Coverage {master_df["final_coverage"].mean():.1f}%\n'
-        f'Merges: {total_all_merges} total | Valid: {total_valid} ({total_valid/total_all_merges*100:.1f}%) | '
-        f'Invalid: {total_invalid} ({overall_invalid_rate:.1f}%)',
-        fontsize=13,
+        f'Branch-Level Metrics Summary - All Projects (Feature Branches Only)\n'
+        f'Total Branches: n={len(df)} | Avg Coverage: {avg_coverage:.1f}% | Avg Compile: {avg_compile:.1f}% | Avg Test: {avg_test:.1f}%\n'
+        f'Merges: {total_all_merges} total | Valid: {total_valid} ({total_valid/total_all_merges*100:.1f}% of merges) | '
+        f'Invalid: {total_invalid} ({overall_invalid_rate:.1f}% of merges)',
+        fontsize=12,
         fontweight='bold',
         pad=20
     )
@@ -569,10 +582,18 @@ def main():
     # Sort by project, then by issue
     df = df.sort_values(['project', 'issue'])
 
-    # Create output directories
+    # Determine project type from first project for letter-based structure
+    first_project_name = projects[0][1] if projects else None
+    if not first_project_name:
+        print("[ERROR] No projects found")
+        return 1
+
+    project_type = get_project_letter(first_project_name)
+
+    # Create output directories (letter-based structure)
     base_dir = Path(__file__).parent.parent.parent.parent
-    output_dir = base_dir / 'visualizations/branch_metrics'  # Per-project heatmaps
-    summary_dir = base_dir / 'visualizations/summary/branch_metrics'  # Summary files
+    output_dir = base_dir / 'visualizations' / project_type / 'branch_metrics'  # Per-project heatmaps
+    summary_dir = base_dir / 'visualizations' / project_type / 'summary' / 'branch_metrics'  # Summary files
     output_dir.mkdir(parents=True, exist_ok=True)
     summary_dir.mkdir(parents=True, exist_ok=True)
 
@@ -603,32 +624,16 @@ def main():
     # Print summary statistics
     print()
     print("=" * 100)
-    print("SUMMARY STATISTICS")
+    print("SUMMARY STATISTICS (FEATURE BRANCHES ONLY - MASTER/MAIN EXCLUDED)")
     print("=" * 100)
 
-    # Separate feature and master branches
-    feature_df = df[df['issue'] != 'Master']
-    master_df = df[df['issue'] == 'Master']
-
-    print(f"Total branches: {len(df)} ({len(feature_df)} feature + {len(master_df)} master)")
+    print(f"Total feature branches analyzed: {len(df)}")
     print()
 
-    print("Feature Branches:")
-    print(f"  Average compile success rate: {feature_df['compile_rate'].mean():.1f}%")
-    print(f"  Average test success rate: {feature_df['test_rate'].mean():.1f}%")
-    print(f"  Average final coverage: {feature_df['final_coverage'].mean():.1f}%")
-    print()
-
-    print("Master Branches:")
-    print(f"  Average compile success rate: {master_df['compile_rate'].mean():.1f}%")
-    print(f"  Average test success rate: {master_df['test_rate'].mean():.1f}%")
-    print(f"  Average final coverage: {master_df['final_coverage'].mean():.1f}%")
-    print()
-
-    print("Overall (All Branches):")
-    print(f"  Average compile success rate: {df['compile_rate'].mean():.1f}%")
-    print(f"  Average test success rate: {df['test_rate'].mean():.1f}%")
-    print(f"  Average final coverage: {df['final_coverage'].mean():.1f}%")
+    print("Average Metrics:")
+    print(f"  Compile success rate: {df['compile_rate'].mean():.1f}%")
+    print(f"  Test success rate: {df['test_rate'].mean():.1f}%")
+    print(f"  Final coverage: {df['final_coverage'].mean():.1f}%")
     print()
     print("Coverage Trends:")
     improved = len(df[df['cov_trend'] > 10])

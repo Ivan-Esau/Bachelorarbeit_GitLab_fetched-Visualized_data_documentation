@@ -77,6 +77,7 @@ def main():
     print("    - Pipeline duration analysis (both types)")
     print("    - Pipeline job success analysis (both types)")
     print("    - Pipeline success summary (both types)")
+    print("    - Pipeline investigation - failure analysis (both types)")
     print("    - Coverage per branch visualization (both types)")
     print()
     print("  PHASE 4: Quality Analysis")
@@ -87,6 +88,7 @@ def main():
     print("    - Pipeline success comparison")
     print("    - Merge success comparison")
     print("    - Coverage per branch comparison")
+    print("    - Pipeline investigation comparison (problems & cancellations)")
     print()
 
     # Check if .env exists
@@ -233,6 +235,30 @@ def main():
         'Creating pipeline success summary (Type B)'
     ))
 
+    results.append(run_script(
+        'scripts/analyzers/pipelines/detailed_pipeline_investigation.py',
+        ['--project-type', 'a'],
+        'Detailed pipeline investigation (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/detailed_pipeline_investigation.py',
+        ['--project-type', 'b'],
+        'Detailed pipeline investigation (Type B)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_investigation.py',
+        ['--project-type', 'a'],
+        'Visualizing pipeline investigation - failure types (Type A)'
+    ))
+
+    results.append(run_script(
+        'scripts/analyzers/pipelines/visualize_pipeline_investigation.py',
+        ['--project-type', 'b'],
+        'Visualizing pipeline investigation - failure types (Type B)'
+    ))
+
     # Coverage Analysis
     results.append(run_script(
         'scripts/analyzers/coverage/visualize_final_coverage_per_branch.py',
@@ -290,6 +316,12 @@ def main():
         'Comparing coverage per branch (Type A vs Type B)'
     ))
 
+    results.append(run_script(
+        'scripts/analyzers/comparisons/compare_pipeline_investigation_a_vs_b.py',
+        [],
+        'Comparing pipeline investigation - problems & cancellations (Type A vs Type B)'
+    ))
+
     # ========================================================================
     # SUMMARY
     # ========================================================================
@@ -321,6 +353,7 @@ def main():
     print("    - Branch metrics heatmaps")
     print("    - Pipeline duration analysis")
     print("    - Pipeline job success charts")
+    print("    - Pipeline investigation - failure type analysis")
     print("    - Coverage per branch charts")
     print()
     print("  Summary:")
@@ -332,6 +365,7 @@ def main():
     print("    - Pipeline success: Type A vs Type B")
     print("    - Merge success: Type A vs Type B")
     print("    - Coverage per branch: Type A vs Type B")
+    print("    - Pipeline investigation (problems & cancellations): Type A vs Type B")
 
     print("\n" + "="*100)
 

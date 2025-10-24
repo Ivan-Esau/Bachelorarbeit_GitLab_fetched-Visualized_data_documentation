@@ -176,9 +176,7 @@ def create_comparison_visualization(df_a, df_b, output_file):
             'both_success_pct': both_success_pct_a,
             'build_only_pct': build_only_pct_a,
             'build_failed_pct': build_failed_pct_a,
-            'canceled_pct': canceled_pct_a,
-            'test_success_mean': df_a['test_success_rate'].mean(),
-            'test_success_median': df_a['test_success_rate'].median()
+            'canceled_pct': canceled_pct_a
         },
         'type_b': {
             'total_pipelines': int(total_pipelines_b),
@@ -189,9 +187,7 @@ def create_comparison_visualization(df_a, df_b, output_file):
             'both_success_pct': both_success_pct_b,
             'build_only_pct': build_only_pct_b,
             'build_failed_pct': build_failed_pct_b,
-            'canceled_pct': canceled_pct_b,
-            'test_success_mean': df_b['test_success_rate'].mean(),
-            'test_success_median': df_b['test_success_rate'].median()
+            'canceled_pct': canceled_pct_b
         }
     }
 
@@ -217,8 +213,7 @@ def create_statistics_table(df_a, df_b, summary_stats, output_file):
             'Both Success (%)': row['both_success_pct'],
             'Build Only (%)': row['build_only_pct'],
             'Build Failed (%)': row['build_failed_pct'],
-            'Canceled (%)': row['canceled_pct'],
-            'Test Success Rate (%)': row['test_success_rate']
+            'Canceled (%)': row['canceled_pct']
         })
 
     # Add per-project data for Type B
@@ -230,8 +225,7 @@ def create_statistics_table(df_a, df_b, summary_stats, output_file):
             'Both Success (%)': row['both_success_pct'],
             'Build Only (%)': row['build_only_pct'],
             'Build Failed (%)': row['build_failed_pct'],
-            'Canceled (%)': row['canceled_pct'],
-            'Test Success Rate (%)': row['test_success_rate']
+            'Canceled (%)': row['canceled_pct']
         })
 
     df = pd.DataFrame(rows)
@@ -239,22 +233,19 @@ def create_statistics_table(df_a, df_b, summary_stats, output_file):
     # Add summary rows
     summary_rows = [
         {'Type': '', 'Project': '', 'Total Pipelines': '', 'Both Success (%)': '',
-         'Build Only (%)': '', 'Build Failed (%)': '', 'Canceled (%)': '',
-         'Test Success Rate (%)': ''},
+         'Build Only (%)': '', 'Build Failed (%)': '', 'Canceled (%)': ''},
         {'Type': 'A', 'Project': 'TOTAL',
          'Total Pipelines': summary_stats['type_a']['total_pipelines'],
          'Both Success (%)': summary_stats['type_a']['both_success_pct'],
          'Build Only (%)': summary_stats['type_a']['build_only_pct'],
          'Build Failed (%)': summary_stats['type_a']['build_failed_pct'],
-         'Canceled (%)': summary_stats['type_a']['canceled_pct'],
-         'Test Success Rate (%)': summary_stats['type_a']['test_success_mean']},
+         'Canceled (%)': summary_stats['type_a']['canceled_pct']},
         {'Type': 'B', 'Project': 'TOTAL',
          'Total Pipelines': summary_stats['type_b']['total_pipelines'],
          'Both Success (%)': summary_stats['type_b']['both_success_pct'],
          'Build Only (%)': summary_stats['type_b']['build_only_pct'],
          'Build Failed (%)': summary_stats['type_b']['build_failed_pct'],
-         'Canceled (%)': summary_stats['type_b']['canceled_pct'],
-         'Test Success Rate (%)': summary_stats['type_b']['test_success_mean']}
+         'Canceled (%)': summary_stats['type_b']['canceled_pct']}
     ]
 
     df_summary = pd.DataFrame(summary_rows)
@@ -331,7 +322,6 @@ def main():
     print(f"  Build Only (Test Failed): {stats_a['build_only']} ({stats_a['build_only_pct']:.1f}%)")
     print(f"  Build Failed: {stats_a['build_failed']} ({stats_a['build_failed_pct']:.1f}%)")
     print(f"  Canceled/Skipped: {stats_a['canceled']} ({stats_a['canceled_pct']:.1f}%)")
-    print(f"  Test Success Rate: {stats_a['test_success_mean']:.1f}% (mean), {stats_a['test_success_median']:.1f}% (median)")
     print()
 
     print(f"Type B:")
@@ -340,7 +330,6 @@ def main():
     print(f"  Build Only (Test Failed): {stats_b['build_only']} ({stats_b['build_only_pct']:.1f}%)")
     print(f"  Build Failed: {stats_b['build_failed']} ({stats_b['build_failed_pct']:.1f}%)")
     print(f"  Canceled/Skipped: {stats_b['canceled']} ({stats_b['canceled_pct']:.1f}%)")
-    print(f"  Test Success Rate: {stats_b['test_success_mean']:.1f}% (mean), {stats_b['test_success_median']:.1f}% (median)")
     print()
 
     print("=" * 100)

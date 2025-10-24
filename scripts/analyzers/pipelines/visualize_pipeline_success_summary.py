@@ -149,8 +149,7 @@ def get_project_pipeline_success(project_name, data_base_dir=None):
         'build_only_pct': build_only_pct,
         'build_failed_pct': build_failed_pct,
         'canceled_pct': canceled_pct,
-        'total_success_rate': both_success_pct + build_only_pct,
-        'test_success_rate': both_success_pct
+        'total_success_rate': both_success_pct + build_only_pct
     }
 
 
@@ -343,20 +342,20 @@ def main():
     total_pipelines = df['total_pipelines'].sum()
     total_branches = df['total_branches'].sum()
     avg_success_rate = df['total_success_rate'].mean()
-    avg_test_success_rate = df['test_success_rate'].mean()
+    avg_both_success = df['both_success_pct'].mean()
     avg_canceled_rate = df['canceled_pct'].mean()
 
     print(f"Total pipelines analyzed: {total_pipelines}")
     print(f"Total branches analyzed: {total_branches}")
     print(f"Average build success rate (equal-weight): {avg_success_rate:.1f}%")
-    print(f"Average full success rate (Build+Test): {avg_test_success_rate:.1f}%")
+    print(f"Average full success rate (Build+Test): {avg_both_success:.1f}%")
     print(f"Average canceled/skipped rate: {avg_canceled_rate:.1f}%")
     print()
 
     print("Per-project rates (each pipeline weighted equally):")
     for _, row in df.iterrows():
         print(f"  {row['project']}: {row['total_success_rate']:.1f}% build, "
-              f"{row['test_success_rate']:.1f}% full, "
+              f"{row['both_success_pct']:.1f}% full, "
               f"{row['canceled_pct']:.1f}% canceled "
               f"({row['total_branches']:.0f} branches, {row['total_pipelines']:.0f} pipelines)")
 

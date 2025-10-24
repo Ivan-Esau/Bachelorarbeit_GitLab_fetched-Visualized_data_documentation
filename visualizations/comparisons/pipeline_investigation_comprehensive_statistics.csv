@@ -1,0 +1,20 @@
+Metric,Type,Count,Min (%),Max (%),Mean (%),Median (%),Std (%)
+Cancellation Rate per Issue,A,5,14.6,34.7,26.1,28.6,9.3142364152946
+Cancellation Rate per Issue,B,5,20.8,45.1,31.98,27.3,11.952280117199395
+Cancellation Rate per Issue,Difference (A - B),,-6.200000000000001,-10.399999999999999,-5.879999999999999,1.3000000000000007,
+,,,,,,,
+Issue #1,A,,,,14.6,,
+Issue #1,B,,,,20.8,,
+Issue #1,Difference (A - B),,,,-6.200000000000001,,
+Issue #2,A,,,,18.1,,
+Issue #2,B,,,,45.1,,
+Issue #2,Difference (A - B),,,,-27.0,,
+Issue #3,A,,,,34.7,,
+Issue #3,B,,,,44.5,,
+Issue #3,Difference (A - B),,,,-9.799999999999997,,
+Issue #4,A,,,,28.6,,
+Issue #4,B,,,,27.3,,
+Issue #4,Difference (A - B),,,,1.3000000000000007,,
+Issue #5,A,,,,34.5,,
+Issue #5,B,,,,22.2,,
+Issue #5,Difference (A - B),,,,12.3,,

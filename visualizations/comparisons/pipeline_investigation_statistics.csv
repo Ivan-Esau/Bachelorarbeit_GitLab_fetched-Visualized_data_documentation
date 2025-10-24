@@ -1,0 +1,20 @@
+Category,Metric,Type A,Type B,Difference
+PRIMARY PROBLEM DISTRIBUTION,,,,
+Problem Type,Compile Failures,6.7% (4 branches),3.4% (2 branches),3.3%
+Problem Type,Frequent Cancellations,26.7% (16 branches),25.4% (15 branches),1.2%
+Problem Type,Frequent Failures,25.0% (15 branches),32.2% (19 branches),-7.2%
+Problem Type,Mixed Issues,1.7% (1 branches),1.7% (1 branches),-0.0%
+Problem Type,None,20.0% (12 branches),18.6% (11 branches),1.4%
+Problem Type,Stuck Pipelines,0.0% (0 branches),1.7% (1 branches),-1.7%
+Problem Type,Test Failures,13.3% (8 branches),8.5% (5 branches),4.9%
+Problem Type,Test Timeouts,6.7% (4 branches),8.5% (5 branches),-1.8%
+,,,,
+CANCELLATION RATE PER ISSUE,,,,
+Issue Cancellation,Issue #1,14.6% (n=10),20.8% (n=10),-6.3%
+Issue Cancellation,Issue #2,18.1% (n=11),45.1% (n=10),-27.0%
+Issue Cancellation,Issue #3,34.7% (n=10),44.5% (n=10),-9.7%
+Issue Cancellation,Issue #4,28.6% (n=10),27.3% (n=10),1.3%
+Issue Cancellation,Issue #5,34.5% (n=9),22.2% (n=9),12.3%
+,,,,
+OVERALL CANCELLATION RATE,Mean,25.8%,32.2%,-6.4%
+OVERALL CANCELLATION RATE,Median,12.2%,25.9%,-13.8%

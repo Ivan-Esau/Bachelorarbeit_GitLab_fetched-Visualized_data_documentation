@@ -1,0 +1,148 @@
+{
+  "fetch_date": "2025-10-22T04:11:56.843444",
+  "project_type": "b",
+  "projects_fetched": 10,
+  "projects_total": 10,
+  "projects": [
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b01_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 4,
+        "total_commits": 151,
+        "total_pipelines": 172,
+        "total_artifacts": 1051,
+        "artifact_size_mb": 47.83,
+        "jobs_with_coverage": 140,
+        "total_api_requests": 355
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b02_battleship",
+      "stats": {
+        "total_issues": 4,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 144,
+        "total_pipelines": 152,
+        "total_artifacts": 570,
+        "artifact_size_mb": 17.81,
+        "jobs_with_coverage": 70,
+        "total_api_requests": 316
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b03_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 150,
+        "total_pipelines": 152,
+        "total_artifacts": 375,
+        "artifact_size_mb": 10.16,
+        "jobs_with_coverage": 45,
+        "total_api_requests": 316
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b04_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 177,
+        "total_pipelines": 199,
+        "total_artifacts": 1234,
+        "artifact_size_mb": 57.44,
+        "jobs_with_coverage": 172,
+        "total_api_requests": 410
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b05_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 103,
+        "total_pipelines": 108,
+        "total_artifacts": 308,
+        "artifact_size_mb": 8.17,
+        "jobs_with_coverage": 34,
+        "total_api_requests": 228
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b06_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 5,
+        "total_merge_requests": 4,
+        "total_commits": 83,
+        "total_pipelines": 96,
+        "total_artifacts": 207,
+        "artifact_size_mb": 5.28,
+        "jobs_with_coverage": 17,
+        "total_api_requests": 201
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b07_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 112,
+        "total_pipelines": 124,
+        "total_artifacts": 235,
+        "artifact_size_mb": 7.37,
+        "jobs_with_coverage": 12,
+        "total_api_requests": 260
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b08_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 167,
+        "total_pipelines": 183,
+        "total_artifacts": 462,
+        "artifact_size_mb": 12.36,
+        "jobs_with_coverage": 43,
+        "total_api_requests": 378
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b09_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 5,
+        "total_commits": 162,
+        "total_pipelines": 172,
+        "total_artifacts": 716,
+        "artifact_size_mb": 20.45,
+        "jobs_with_coverage": 86,
+        "total_api_requests": 356
+      }
+    },
+    {
+      "project_name": "simulationsprojects_bachelorarbeit_ivan_esau/ba_project_b10_battleship",
+      "stats": {
+        "total_issues": 5,
+        "total_branches": 6,
+        "total_merge_requests": 3,
+        "total_commits": 146,
+        "total_pipelines": 167,
+        "total_artifacts": 724,
+        "artifact_size_mb": 19.27,
+        "jobs_with_coverage": 55,
+        "total_api_requests": 344
+      }
+    }
+  ]
+}
